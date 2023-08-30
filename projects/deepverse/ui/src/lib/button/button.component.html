@@ -1,0 +1,17 @@
+<button
+  class="button"
+  [class.primary]="variant === 'primary'"
+  [class.secondary]="variant === 'secondary'"
+  [class.tertiary]="variant === 'tertiary'"
+  [style.background-color]="bg"
+  [style.color]="color"
+  [style.--bg]="bg"
+  [style.--color]="color"
+  [class.xs]="size === 'xs'"
+  [class.sm]="size === 'sm'"
+  [class.md]="size === 'md'"
+  [class.lg]="size === 'lg'"
+  [class.xl]="size === 'xl'"
+>
+  <ng-content></ng-content>
+</button>
