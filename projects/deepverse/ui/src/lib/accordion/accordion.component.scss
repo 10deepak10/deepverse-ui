@@ -1,0 +1,65 @@
+.accordion-body {
+  width: 100%;
+  height: fit-content;
+  box-sizing: border-box;
+  padding: 0.5rem 0rem;
+  border: 0.1rem solid gray;
+  border-radius: 0.3rem;
+  transition-duration: 400ms;
+  .accordion {
+    box-sizing: border-box;
+    list-style: none;
+    margin-top: 0.2rem;
+    padding: 0rem 0.5rem;
+  }
+}
+.flush {
+  border: none;
+}
+label {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 0.3rem;
+  padding: 1rem;
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: large;
+  overflow: hidden;
+  input {
+    display: none;
+    &:checked + svg {
+      transform: rotate(180deg);
+      transition-duration: 400ms;
+      path {
+        stroke: green;
+      }
+    }
+  }
+  svg {
+    transition-duration: 400ms;
+  }
+  &:has(input:checked) {
+    background-color: rgba(0, 128, 0, 0.404);
+    color: green;
+    &:after {
+      content: "";
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0.2rem;
+      background: green;
+    }
+  }
+  &:has(input:checked) + .accordion-content {
+    max-height: fit-content;
+    text-align: justify;
+    box-sizing: border-box;
+    padding: 0.5rem 1rem;
+    transition-duration: 400ms;
+  }
+}

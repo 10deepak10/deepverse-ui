@@ -1,0 +1,17 @@
+<div
+  class="header-container"
+  [style.backgroundColor]="bgColor"
+  [style.color]="textColor"
+>
+  <div class="header">
+    <div class="logo flex">
+      <ng-content select="[logo]"></ng-content>&nbsp;
+      <div class="margin">{{ title }}</div>
+      <ng-content></ng-content>
+    </div>
+  </div>
+  <ng-content select="[center]"></ng-content>
+  <div class="right">
+    <ng-content select="[right]"></ng-content>
+  </div>
+</div>

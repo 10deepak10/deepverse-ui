@@ -1,17 +1,18 @@
 <button
   class="button"
-  [class.primary]="variant === 'primary'"
-  [class.secondary]="variant === 'secondary'"
-  [class.tertiary]="variant === 'tertiary'"
-  [style.background-color]="bg"
-  [style.color]="color"
+  [ngClass]="{
+    'primary' : variant === 'primary',
+    'outline' : variant === 'outline',
+    'link' : variant === 'link',
+    'xs' : size === 'xs',
+    'sm' : size === 'sm',
+    'md' : size === 'md',
+    'lg' : size === 'lg',
+    'xl' : size === 'xl',
+  }"
   [style.--bg]="bg"
   [style.--color]="color"
-  [class.xs]="size === 'xs'"
-  [class.sm]="size === 'sm'"
-  [class.md]="size === 'md'"
-  [class.lg]="size === 'lg'"
-  [class.xl]="size === 'xl'"
+  [disabled]="disabled"
 >
   <ng-content></ng-content>
 </button>

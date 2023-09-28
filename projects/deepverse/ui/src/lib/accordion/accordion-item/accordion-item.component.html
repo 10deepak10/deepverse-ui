@@ -1,0 +1,36 @@
+<label
+  ><input
+    #INPUT
+    [type]="multipleOpen == false ? 'radio' : 'checkbox'"
+    [checked]="
+      multipleOpen == false && defaultOpen == true
+        ? true
+        : defaultOpen == true && multipleOpen == true
+    "
+    name="{{ group }}"
+    type="radio"
+    (click)="state()"
+  />
+  {{ title }}
+  <svg
+    width="1rem"
+    height="1rem"
+    viewBox="0 0 48 48"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect width="48" height="48" fill="white" fill-opacity="0.01" />
+    <path
+      d="M37 18L25 30L13 18"
+      stroke="black"
+      stroke-width="4"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+</label>
+<div class="accordion-content" [ngClass]="INPUT.checked ? 'item-expand' : ''">
+  <div>
+    <ng-content></ng-content>
+  </div>
+</div>

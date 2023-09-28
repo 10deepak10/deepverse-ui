@@ -1,4 +1,10 @@
-import { Component, Input } from '@angular/core';
+import {
+  Component,
+  Input,
+  ElementRef,
+  EventEmitter,
+  Output,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,8 +15,16 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent {
-  @Input() variant: 'primary' | 'secondary' | 'tertiary' = 'primary';
-  @Input() bg: string = 'black';
-  @Input() color: string = 'white';
+  public disabled: boolean = false;
+  @Input() variant: 'primary' | 'outline' | 'link' = 'primary';
+  @Input() bg: string = '#1a202c';
+  @Input() color: string = '#757575';
   @Input() size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
+  @Output() click = new EventEmitter<void>();
+  handleClick() {
+    this.click.emit();
+  }
+  constructor(private elementRef: ElementRef) {
+    this.disabled = this.elementRef.nativeElement.hasAttribute('disabled');
+  }
 }
