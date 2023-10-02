@@ -1,0 +1,54 @@
+<div class="avatar">
+    <div
+      title="{{ name }}"
+      (click)="onAvatarClick()"
+      *ngIf="imageUrl || initials"
+      class="avatar-wrapper"
+      [ngClass]="{
+        'rounded-avatar': shape === 'circle' && !cornerRadius,
+        'rounded-square-avatar': shape === 'rounded' && !cornerRadius,
+        'avatar-xl': size === 'xl',
+        'avatar-lg': size === 'lg',
+        'avatar-md': size === 'md',
+        'avatar-sm': size === 'sm'
+      }"
+      [ngStyle]="{
+        'background-color': bgColor,
+        'border-radius': cornerRadius + '%',
+        'border-color': showBorder ? borderColor : '',
+        'border-width': showBorder ? borderWidth + 'px' : '',
+        'border-style': showBorder ? borderStyle : ''
+      }"
+    >
+      <img
+        *ngIf="imageUrl"
+        src="{{ imageUrl }}"
+        [ngStyle]="{ 'border-radius': cornerRadius + '%' }"
+      />
+      <div *ngIf="!imageUrl" class="initials" [ngStyle]="{ color: textColor }">
+        {{ initials }}
+      </div>
+      <span
+        *ngIf="status"
+        class="avatar-status"
+        [ngClass]="{
+          'bg-danger': status === 'danger',
+          'bg-success': status === 'success'
+        }"
+      ></span>
+    </div>
+    <span
+      [style.font-size]="
+        size == 'xl'
+          ? '1.6rem'
+          : size == 'lg'
+          ? '1.2rem'
+          : size == 'md'
+          ? '1rem'
+          : '.6rem'
+      "
+      *ngIf="showName"
+      >{{ name }}</span
+    >
+  </div>
+  

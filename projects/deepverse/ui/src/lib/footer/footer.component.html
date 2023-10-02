@@ -1,12 +1,10 @@
-<header
-  class="header-container"
+<footer
+  class="footer-container"
   [style.backgroundColor]="bgColor"
   [style.color]="textColor"
 >
   <div class="header">
-    <div class="logo flex">
-      <ng-content select="[logo]"></ng-content>&nbsp;
-      <div class="margin">{{ title }}</div>
+    <div class="flex">
       <ng-content></ng-content>
     </div>
   </div>
@@ -14,4 +12,4 @@
   <div class="right">
     <ng-content select="[right]"></ng-content>
   </div>
-</header>
+</footer>

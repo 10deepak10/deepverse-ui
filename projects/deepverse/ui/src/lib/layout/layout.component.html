@@ -1,0 +1,9 @@
+<main class="main-container">
+  <dv-header></dv-header>
+  <dv-sidebar [navGroups]="sideNav" offset="3rem">
+    <div class="layout-content">
+     <div class="content-container" [ngClass]="footerFixed ? 'footer-fixed' :''"> <ng-content></ng-content></div>
+      <dv-footer class="layout-footer"></dv-footer>
+    </div>
+  </dv-sidebar>
+</main>

@@ -5,8 +5,8 @@ import {
   ButtonComponent,
   AccordionComponent,
   AccordionItemComponent,
+  LayoutComponent,
 } from '@deepverse/ui';
-import { HeaderComponent } from '../../../deepverse/ui/src/lib/header/header.component';
 
 @Component({
   selector: 'app-root',
@@ -19,12 +19,33 @@ import { HeaderComponent } from '../../../deepverse/ui/src/lib/header/header.com
     ButtonComponent,
     AccordionComponent,
     AccordionItemComponent,
-    HeaderComponent,
+    LayoutComponent,
+    RouterOutlet,
   ],
 })
 export class AppComponent {
   title = 'documentation';
-  handleButtonClick() {
-    console.log('red');
-  }
+
+  navGroup = [
+    {
+      icon :'assets/home.svg',
+      title: 'home',
+      link: '',
+    },
+    {
+      icon :'assets/accordion.svg',
+      title: 'accordion',
+      link: 'accordion',
+    },
+    {
+      icon :'assets/button.svg',
+      title: 'button',
+      link: 'button',
+    },
+    {
+      icon :'assets/avatar.svg',
+      title: 'avatar',
+      link: 'avatar',
+    },
+  ];
 }
