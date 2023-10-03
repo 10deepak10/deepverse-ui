@@ -3,6 +3,7 @@ import { AccordionDemoComponent } from './component/accordion/accordion.componen
 import { ButtonDemoComponent } from './component/button/button.component';
 import { HomeComponent } from './component/home/home.component';
 import { AvatarDemoComponent } from './component/avatar/avatar.component';
+import { ImageSliderDemoComponent } from './component/image-slider/image-slider.component';
 
 export const routes: Routes = [
   {
@@ -20,5 +21,9 @@ export const routes: Routes = [
   {
     path: 'avatar',
     component: AvatarDemoComponent,
+  },
+  {
+    path: 'image-slider',
+    component: ImageSliderDemoComponent,
   },
 ];

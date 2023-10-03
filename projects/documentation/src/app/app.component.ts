@@ -47,5 +47,10 @@ export class AppComponent {
       title: 'avatar',
       link: 'avatar',
     },
+    {
+      icon :'assets/image-slider.svg',
+      title: 'image slider',
+      link: 'image-slider',
+    },
   ];
 }

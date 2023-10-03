@@ -1,0 +1,34 @@
+<div class="wrapper">
+    <div class="images-area">
+      <div
+        class="image"
+        id="image"
+        [style.background]="'url(' + slideURL + ')'"
+      ></div>
+    </div>
+    <div class="buttons-area">
+      <div
+        (click)="sliderprev(AutoScroll)"
+        [style.visibility]="selectedIndex == 0 ? 'hidden' : 'visible'"
+      >
+        «
+      </div>
+      <div
+        (click)="sliderNext(AutoScroll)"
+        [style.visibility]="
+          selectedIndex == images.length - 1 ? 'hidden' : 'visible'
+        "
+      >
+        »
+      </div>
+    </div>
+    <div class="pagination-area" #AutoScroll>
+      <div
+        *ngFor="let dot of images; index as i"
+        id="{{ i }}"
+        [class.active]="selectedIndex === i"
+        (click)="slideURL = dot; setIndex(i, AutoScroll)"
+      ></div>
+    </div>
+  </div>
+  
