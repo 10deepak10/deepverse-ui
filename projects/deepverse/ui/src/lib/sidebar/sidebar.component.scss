@@ -68,6 +68,8 @@
             align-items: center;
             font-size: larger;
             color: var(--text);
+            white-space: nowrap;
+            text-overflow: ellipsis;
           }
         }
         &:hover:not(.active) {

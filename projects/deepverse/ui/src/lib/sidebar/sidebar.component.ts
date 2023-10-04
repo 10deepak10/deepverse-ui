@@ -17,11 +17,11 @@ export class SidebarComponent {
   @Input() activeColor: string = ' #012345';
   @Input() bg: string = '#123456';
   @Input() text: string = '#fff';
-  @Input() indicatorColor: string = '#aaffaa';
+  @Input() indicatorColor: string = '#aaffff';
   Acolor: string = this.activeColor + '80';
   hover: string = this.activeColor + '30';
   toggleSidebarWidth() {
-    this.sidebarWidth = this.sidebarWidth == '12rem' ? '3.5rem' : '12rem';
+    this.sidebarWidth = this.sidebarWidth == '12rem' ? '3rem' : '12rem';
   }
   constructor(private route: Router) {}
 }

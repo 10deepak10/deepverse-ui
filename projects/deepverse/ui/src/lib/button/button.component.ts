@@ -17,8 +17,8 @@ import { CommonModule } from '@angular/common';
 export class ButtonComponent {
   public disabled: boolean = false;
   @Input() variant: 'primary' | 'outline' | 'link' = 'primary';
-  @Input() bg: string = '#aaffaa';
-  @Input() color: string = '#123456';
+  @Input() bg: string = '#123456';
+  @Input() color: string = '#aaffff';
   @Input() size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
   @Output() click = new EventEmitter<void>();
   handleClick() {

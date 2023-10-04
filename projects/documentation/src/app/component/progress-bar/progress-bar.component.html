@@ -1,0 +1,34 @@
+<div class="progress-demo">
+    <h3>Default progress bar style.</h3>
+<dv-progress-bar></dv-progress-bar>
+<br />
+<h3>Customized progress-bar.</h3>
+<dv-progress-bar
+  bgColor="orange"
+  color="black"
+  progress="50%"
+  [showPercentage]="true"
+  textColor="orange"
+  [border]="true"
+  borderWidth=".2rem"
+  borderColor="orange"
+  [rounded]="true"
+>
+  This is Customized progress-bar.
+</dv-progress-bar>
+<br />
+<h3>Customized progress-bar with Animation.</h3>
+<dv-progress-bar
+  bgColor="gray"
+  color="red"
+  progress="67%"
+  [showPercentage]="true"
+  textColor="black"
+  [animate]="true"
+  [border]="true"
+  borderColor="red"
+  borderWidth=".2rem"
+>
+ <strong> Animated progress Bar.</strong>
+</dv-progress-bar>
+</div>

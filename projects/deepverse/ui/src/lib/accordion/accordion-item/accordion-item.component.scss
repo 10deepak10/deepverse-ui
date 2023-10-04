@@ -15,16 +15,19 @@ label {
       transform: rotate(180deg);
       transition-duration: 400ms;
       path {
-        stroke: green;
+        stroke: #aaffff;
       }
     }
   }
   svg {
     transition-duration: 400ms;
+    path {
+      stroke: #aaffff;
+    }
   }
   &:has(input:checked) {
     background-color: rgba(0, 128, 0, 0.308);
-    color: green;
+    color: #aaffff;
     &:after {
       content: "";
       position: absolute;
@@ -34,7 +37,7 @@ label {
       left: 0;
       width: 100%;
       height: 0.2rem;
-      background: green;
+      background: #aaffff;
     }
   }
   &:has(input:checked) + .accordion-content {

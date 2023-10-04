@@ -4,6 +4,7 @@ import { ButtonDemoComponent } from './component/button/button.component';
 import { HomeComponent } from './component/home/home.component';
 import { AvatarDemoComponent } from './component/avatar/avatar.component';
 import { ImageSliderDemoComponent } from './component/image-slider/image-slider.component';
+import { ProgressBarDemoComponent } from './component/progress-bar/progress-bar.component';
 
 export const routes: Routes = [
   {
@@ -25,5 +26,9 @@ export const routes: Routes = [
   {
     path: 'image-slider',
     component: ImageSliderDemoComponent,
+  },
+  {
+    path: 'progress-bar',
+    component: ProgressBarDemoComponent,
   },
 ];

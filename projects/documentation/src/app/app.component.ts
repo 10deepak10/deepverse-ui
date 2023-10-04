@@ -52,5 +52,10 @@ export class AppComponent {
       title: 'image slider',
       link: 'image-slider',
     },
+    {
+      icon :'assets/progress-bar.svg',
+      title: 'progress bar',
+      link: 'progress-bar',
+    },
   ];
 }

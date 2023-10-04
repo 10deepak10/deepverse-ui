@@ -1,0 +1,24 @@
+<div
+  class="progress-container border"
+  [ngClass]="{ rounded: rounded == true, border: border == true }"
+  [style.background-color]="bgColor"
+  [style.border-width]="borderWidth"
+  [style.border-color]="borderColor"
+  [style.height]="barHeight"
+  [style.--size]="barHeight"
+>
+  <div
+    [ngClass]="{ rounded: rounded == true,  animate: animate == true}"
+    class="progress"
+    [style.background-color]="color"
+    [style.width]="progress"
+    [style.color]="textColor"
+  >
+    <div class="text">
+      <ng-content></ng-content>
+    </div>
+    <span *ngIf="showPercentage == true" class="percentage">
+      {{ progress }}
+    </span>
+  </div>
+</div>
