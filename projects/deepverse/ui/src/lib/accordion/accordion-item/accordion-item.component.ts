@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./accordion-item.component.scss'],
 })
 export class AccordionItemComponent implements OnInit {
+  selectState: boolean = false;
   @Input() title: string = 'accord';
   group: string = 'group';
   multipleOpen: boolean = false;
@@ -19,5 +20,13 @@ export class AccordionItemComponent implements OnInit {
     this.multipleOpen = this.accordion.multipleOpen;
     this.group = this.accordion.group;
   }
-  state() {}
+
+  state(item: HTMLInputElement) {
+    if (!this.multipleOpen) {
+      if (this.selectState) {
+        item.checked = false;
+      }
+      this.selectState = item.checked;
+    }
+  }
 }
