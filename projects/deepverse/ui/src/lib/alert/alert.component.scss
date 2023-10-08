@@ -1,0 +1,121 @@
+$gray: #cccccc;
+$red: #ff0000;
+$success: #04aa6d;
+$danger: #f44336;
+$warning: #ff9800;
+$info: #2196f3;
+$disable: #aaaaaa;
+
+.alert {
+  padding: 10px;
+  background-color: $gray;
+  color: black;
+  border-radius: 0.5rem;
+  .closebtn {
+    margin-left: 15px;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      color: $red;
+    }
+  }
+  .icon {
+    position: relative;
+    top: -0.1rem;
+    height: 1.5rem;
+    width: 1.5rem;
+    box-sizing: border-box;
+    margin-right: 15px;
+    float: left;
+    vertical-align: top;
+    background: white;
+    border-radius: 50%;
+  }
+}
+.danger {
+  background-color: $danger;
+  color: white;
+  .closebtn {
+    color: white;
+    &:hover {
+      color: black;
+    }
+  }
+  svg.icon {
+    stroke: $danger;
+    path {
+      stroke: $danger;
+    }
+  }
+}
+.success {
+  background-color: $success;
+  color: white;
+  .closebtn {
+    color: white;
+    &:hover {
+      color: black;
+    }
+  }
+  svg.icon {
+    fill: $success;
+    position: relative;
+    g {
+      transform: scale(94%) translateX(1rem) translatey(1rem);
+    }
+  }
+}
+.warning {
+  background-color: $warning;
+  color: black;
+  .closebtn {
+    color: black;
+    &:hover {
+      color: white;
+    }
+  }
+  svg.icon {
+    stroke: $warning;
+    .inner {
+      fill: $warning;
+      stroke: none;
+    }
+  }
+}
+.disabled {
+  cursor: not-allowed;
+  background-color: $disable;
+  color: white;
+  .closebtn {
+    color: white;
+    &:hover {
+      color: black;
+    }
+  }
+  svg.icon {
+    fill: $disable;
+    stroke: $disable;
+  }
+}
+.info {
+  background-color: $info;
+  color: white;
+  .closebtn {
+    color: white;
+    &:hover {
+      color: black;
+    }
+  }
+  svg.icon {
+    transform: scale(96%);
+    position: relative;
+    fill: $info;
+    path {
+      fill: $info;
+    }
+  }
+}

@@ -14,3 +14,4 @@ export * from './lib/accordion/accordion.component';
 export * from './lib/accordion/accordion-item/accordion-item.component';
 export * from './lib/image-slider/image-slider.component';
 export * from './lib/progress-bar/progress-bar.component';
+export * from './lib/alert/alert.component';

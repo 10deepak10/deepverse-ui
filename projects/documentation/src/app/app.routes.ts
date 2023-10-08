@@ -5,6 +5,7 @@ import { HomeComponent } from './component/home/home.component';
 import { AvatarDemoComponent } from './component/avatar/avatar.component';
 import { ImageSliderDemoComponent } from './component/image-slider/image-slider.component';
 import { ProgressBarDemoComponent } from './component/progress-bar/progress-bar.component';
+import { AlertDemoComponent } from './component/alert/alert.component';
 
 export const routes: Routes = [
   {
@@ -14,6 +15,10 @@ export const routes: Routes = [
   {
     path: 'accordion',
     component: AccordionDemoComponent,
+  },
+  {
+    path: 'alert',
+    component: AlertDemoComponent,
   },
   {
     path: 'button',

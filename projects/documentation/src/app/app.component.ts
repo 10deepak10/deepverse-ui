@@ -38,6 +38,11 @@ export class AppComponent {
       link: 'accordion',
     },
     {
+      icon :'assets/alert.svg',
+      title: 'alert',
+      link: 'alert',
+    },
+    {
       icon :'assets/button.svg',
       title: 'button',
       link: 'button',
