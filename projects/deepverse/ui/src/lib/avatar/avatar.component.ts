@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'gdl-avatar',
+  selector: 'dv-avatar',
   standalone:true,
   imports:[CommonModule],
   templateUrl: './avatar.component.html',
