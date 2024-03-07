@@ -9,7 +9,7 @@ Run `ng generate component component-name --project ui` to generate a new compon
 
 ## Build
 
-Run `ng build ui` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `ng build  --@deepverse/ui` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Publishing
 
