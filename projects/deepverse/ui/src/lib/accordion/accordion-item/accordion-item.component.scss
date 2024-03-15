@@ -1,3 +1,9 @@
+label, input {
+  /* added because a second click to unselect radio often
+     appears as a double click to select text */
+  -webkit-user-select: none;
+  user-select: none;
+}
 label {
   box-sizing: border-box;
   position: relative;
@@ -47,7 +53,6 @@ label {
     transition-duration: 400ms;
   }
 }
-
 .accordion-content {
   display: grid;
   margin-top: .5rem;

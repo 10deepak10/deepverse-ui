@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, ContentChildren, Input, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { AccordionItemComponent } from './accordion-item/accordion-item.component';
 @Component({
   selector: 'dv-accordion',
   standalone: true,
@@ -12,7 +13,13 @@ export class AccordionComponent implements OnInit {
   @Input() multipleOpen: boolean = false;
   @Input() defaultOpen: boolean = false;
   @Input() flush: boolean = false;
+  items: any;
+  @ContentChildren(AccordionItemComponent) accordionItems!: QueryList<AccordionItemComponent>;
   constructor() {}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
+  ngAfterContentInit(): void {
+    this.items = this.accordionItems.toArray();
+  }
   
 }

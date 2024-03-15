@@ -1,15 +1,11 @@
 <label
   ><input
     #INPUT
-    [type]="multipleOpen == false ? 'radio' : 'checkbox'"
-    [checked]="
-      multipleOpen == false && defaultOpen == true
-        ? true
-        : defaultOpen == true && multipleOpen == true
-    "
+    [type]="'checkbox'"
+    [checked]="selectState || defaultOpen"
     name="{{ group }}"
     type="radio"
-    (click)="state(INPUT)"
+    (change)="state(INPUT)"
   />
   {{ title }}
   <svg
