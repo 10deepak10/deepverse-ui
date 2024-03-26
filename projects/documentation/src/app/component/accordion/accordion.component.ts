@@ -9,5 +9,7 @@ import { AccordionComponent, AccordionItemComponent } from '@deepverse/ui';
   templateUrl: './accordion.component.html'
 })
 export class AccordionDemoComponent {
-
-}
+  allactives(e:any){
+    console.log(e);
+  }
+ }

@@ -1,6 +1,9 @@
 {
   "name": "@deepverse/ui",
   "version": "0.0.1",
+  "description":  " Effortlessly integrate stunning UI components for a seamless development experience.",
+  "keywords": ["angular", "library"],
+  "author": "Deepak Mohanty",
   "peerDependencies": {
     "@angular/common": "^16.2.0",
     "@angular/core": "^16.2.0"

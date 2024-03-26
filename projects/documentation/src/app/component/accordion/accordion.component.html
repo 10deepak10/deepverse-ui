@@ -1,13 +1,13 @@
 <section>
-    <dv-accordion group="radio">
-      <dv-accordion-item title="radio 1" [defaultOpen]="true">
+    <dv-accordion group="radio" (activeAccordion)="allactives($event)">
+      <dv-accordion-item title="radio 1" [defaultOpen]="true" id="first">
         <div>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum
           possimus, qui minima aliquam cupiditate sequi ullam, eligendi
          
         </div></dv-accordion-item
       >
-      <dv-accordion-item title="radio 2">
+      <dv-accordion-item title="radio 2" id="second">
         <div>
           accord 2, Lorem, ipsum dolor sit amet consectetur adipisicing elit.
           Dolorum possimus, qui minima aliquam cupiditate sequi ullam, eligendi
@@ -15,10 +15,10 @@
         
         </div></dv-accordion-item
       >
-      <dv-accordion-item title="radio 3"> <div>hurray</div></dv-accordion-item>
+      <dv-accordion-item title="radio 3" id="third"> <div>hurray</div></dv-accordion-item>
     </dv-accordion>
-    <dv-accordion group="checkbox" [multipleOpen]="true">
-      <dv-accordion-item title="radio 1">
+    <dv-accordion group="checkbox" [multipleOpen]="true" (activeAccordion)="allactives($event)">
+      <dv-accordion-item title="checkbox 1" id="one">
         <div>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum
           possimus, qui minima aliquam cupiditate sequi ullam, eligendi
@@ -27,7 +27,7 @@
           repellat aspernatur?
         </div></dv-accordion-item
       >
-      <dv-accordion-item title="radio 2">
+      <dv-accordion-item [defaultOpen]="true" title="checkbox 2" id="two">
         <div>
           accord 2, Lorem, ipsum dolor sit amet consectetur adipisicing elit.
           Dolorum possimus, qui minima aliquam cupiditate sequi ullam, eligendi
@@ -35,6 +35,6 @@
           repellat aspernatur?
         </div></dv-accordion-item
       >
-      <dv-accordion-item title="radio 3"> <div>hurray</div></dv-accordion-item>
+      <dv-accordion-item title="checkbox 3" [defaultOpen]="true" id="three"> <div>hurray</div></dv-accordion-item>
     </dv-accordion>
   </section>
