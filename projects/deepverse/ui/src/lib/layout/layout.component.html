@@ -1,9 +1,19 @@
 <main class="main-container">
-  <dv-header></dv-header>
-  <dv-sidebar [navGroups]="sideNav" offset="3rem">
-    <div class="layout-content">
-     <div class="content-container" [ngClass]="footerFixed ? 'footer-fixed' :''"> <ng-content></ng-content></div>
-      <dv-footer class="layout-footer"></dv-footer>
+  <ng-container  *ngIf="layoutType == 'full-header'">
+    <ng-container *ngTemplateOutlet="headerTemplate" ></ng-container>
+ </ng-container>
+  <div class="content-container">
+    <ng-content select="dv-sidebar"></ng-content>
+    <div class="layout-content" [ngClass]="footerFixed ? 'footer-fixed' :'footer-with-content'">
+      <ng-container  *ngIf="layoutType == 'full-sidebar'">
+        <ng-container *ngTemplateOutlet="headerTemplate" ></ng-container>
+     </ng-container>
+      <div><ng-content></ng-content></div>
+      <ng-content select="dv-footer"></ng-content>
     </div>
-  </dv-sidebar>
+  </div>
 </main>
+
+<ng-template #headerTemplate>
+  <ng-content select="dv-header"></ng-content>
+</ng-template>

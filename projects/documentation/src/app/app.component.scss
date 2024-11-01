@@ -1,1 +1,20 @@
+:host{
+   /* Primary and Secondary Colors */
+  --theme-primary-color: #3498db;   /* Blue */
+  --theme-secondary-color: #2ecc71; /* Green */
 
+  /* Background and Text Colors */
+  --theme-background-color: #f5f5f5; /* Light Grey */
+  --theme-text-color: #333333;       /* Dark Grey */
+
+  /* Action (Link, Button) Colors */
+  --theme-link-color: #e74c3c;       /* Red */
+
+  /* Neutral Colors */
+  --theme-neutral-color: #bdc3c7;    /* Light Grey */
+
+  /* Feedback Colors */
+  --theme-success-color: #27ae60;    /* Green */
+  --theme-warning-color: #f1c40f;    /* Yellow */
+  --theme-error-color: #e74c3c;      /* Red */
+}

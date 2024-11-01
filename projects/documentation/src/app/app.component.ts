@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import {
@@ -6,6 +6,10 @@ import {
   AccordionComponent,
   AccordionItemComponent,
   LayoutComponent,
+  AvatarComponent,
+  HeaderComponent,
+  SidebarComponent,
+  FooterComponent,
 } from '@deepverse/ui';
 
 @Component({
@@ -21,10 +25,21 @@ import {
     AccordionItemComponent,
     LayoutComponent,
     RouterOutlet,
+    AvatarComponent,
+    HeaderComponent,
+    SidebarComponent,
+    FooterComponent
   ],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  
   title = 'documentation';
+
+  @ViewChild('userProfile', { static: true }) userProfileTemplate!: TemplateRef<any>;
+
+  ngOnInit(): void {
+  }
+
 
   navGroup = [
     {
@@ -61,6 +76,11 @@ export class AppComponent {
       icon :'assets/progress-bar.svg',
       title: 'progress bar',
       link: 'progress-bar',
+    },
+    {
+      icon :'assets/progress-bar.svg',
+      title: 'image picker',
+      link: 'imagepicker',
     },
   ];
 }

@@ -14,6 +14,10 @@ import { AccordionItemComponent } from './accordion-item/accordion-item.componen
   imports: [CommonModule],
   templateUrl: './accordion.component.html',
   styleUrls: ['./accordion.component.scss'],
+  host:{
+    '[style.--acordion-border]': "'grey'",
+
+  }
 })
 export class AccordionComponent {
   @Input() group: string = 'group';

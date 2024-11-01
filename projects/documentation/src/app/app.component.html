@@ -1,3 +1,14 @@
-<dv-layout [sideNav]="navGroup" >
+<dv-layout [layoutType]="'full-sidebar'">
+  <dv-header>
+    <div right class="user-profile">
+      <dv-avatar
+    [name]="'Reginald Andrews'"
+    [imageUrl]="'assets/avatars/3.jpg'"
+  ></dv-avatar>
+    </div>
+  </dv-header>
+  <dv-sidebar [navGroups]="navGroup" offset="3rem">
+  </dv-sidebar> 
   <router-outlet></router-outlet>
+  <dv-footer></dv-footer>
  </dv-layout>

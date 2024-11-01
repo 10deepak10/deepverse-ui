@@ -1,7 +1,12 @@
+:host{
+  display: block;
+  width: fit-content;
+}
+
 .sidebar-container {
-  flex-grow: 0;
   width: 100%;
-  height: calc(100vh - var(--offset));
+  height: 100%;
+  // height: calc(100vh - var(--offset));
   display: flex;
   .sidebar-wrapper {
     display: flex;
@@ -10,7 +15,7 @@
     transition: width 500ms;
     overflow-y: hidden;
     .sidebar-nav-container {
-      flex-grow: 1;
+      flex: 1 0 1px;
       overflow-y: auto;
       -ms-overflow-style: none; /* IE and Edge */
       scrollbar-width: none; /* Firefox */

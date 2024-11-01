@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { SidebarComponent } from '../sidebar/sidebar.component';
@@ -12,7 +12,10 @@ import { NavGroup } from '../utilites/interfaces';
   styleUrls: ['./layout.component.scss'],
   imports: [CommonModule, HeaderComponent, SidebarComponent, FooterComponent],
 })
-export class LayoutComponent {
+export class LayoutComponent{
+  @Input() layoutType : 'full-header'| 'full-sidebar' =  'full-header' ;
+
+
   @Input() footerFixed: boolean = true;
-  @Input() sideNav: NavGroup[] = [];
+
 }

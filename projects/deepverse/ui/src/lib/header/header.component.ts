@@ -11,7 +11,6 @@ import { CommonModule } from '@angular/common';
 export class HeaderComponent {
   @Input() bgColor: string = '#012345';
   @Input() textColor: string = '#ffffff';
-  @Input() title: string = 'DeepVerse';
   constructor() {}
 
   ngOnInit(): void {}
