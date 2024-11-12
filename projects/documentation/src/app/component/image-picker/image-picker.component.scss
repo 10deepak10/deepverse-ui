@@ -1,0 +1,56 @@
+
+
+.image-container{
+    width: 750px;
+    height: auto;
+    img{
+        width: 100%;
+        height: auto;
+    }
+
+  }
+  .color-showcase {
+    display: flex;
+    gap: 10px;
+  
+    .color-box {
+      width: 150px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 5px;
+      padding: 10px;
+    }
+  }
+.card{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+  border-radius: 8px;
+  width: 760px;
+  margin: 12px;
+}
+ button{
+  all: unset;
+  width: fit-content;
+  padding: 10px 6px;
+  min-width: 62px;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 16px;
+  text-transform: capitalize;
+  font-weight: 500;
+ }
+
+//   <div class="card">
+//     <div class="img-box"></div>
+//     <div class="info-box">
+//         <h3 class="heading3"> card heading</h3>
+//         <span class="">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas explicabo commodi rerum, consectetur atque saepe. Fugiat odit eaque corrupti asperiores neque fuga, quidem quaerat in itaque nihil rerum ut dolorum deleniti saepe labore exercitationem et nisi doloribus voluptas culpa rem.</span>
+//         <button>action</button>
+//     </div>
+// </div>

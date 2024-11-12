@@ -11,3 +11,21 @@ body{
 :root{
   --dv-border : #808080;
 }
+dv-layout{
+
+dv-header{
+border-radius: 8px;
+overflow: hidden;
+}
+.main-container{
+  padding: 10px;
+  box-sizing: border-box;
+  gap: 10px;
+  .content-container{
+    gap: 10px;
+    .layout-content{
+      gap: 10px;
+    }
+  }
+}
+}

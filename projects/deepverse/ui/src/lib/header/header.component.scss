@@ -1,3 +1,8 @@
+:host(dv-header){
+  display: block;
+  background-color: var(--bg-color);
+  color: var(--color);
+}
 .header-container {
   box-sizing: border-box;
   min-height: 3rem;
