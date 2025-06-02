@@ -10,13 +10,13 @@ import { CommonModule } from '@angular/common';
 })
 export class ImagePickerComponent {
   imageSrc: string | ArrayBuffer | null = null;
-  paletteColors: { dominant: string, accent: string, highlight: string, unique: string } = { 
-    dominant: '', accent: '', highlight: '', unique: ''
+  paletteColors: { 
+    dominant: string, accent: string, highlight: string, unique: string, 
+    secondary: string, tertiary: string, shadow: string, contrast: string 
+  } = { 
+    dominant: '', accent: '', highlight: '', unique: '', 
+    secondary: '', tertiary: '', shadow: '', contrast: '' 
   };
-
-  lightTheme = { background: '', text: '', accent: '', highlight: '' };
-  darkTheme = { background: '', text: '', accent: '', highlight: '' };
-
   // Handle the image upload event
   onImageUpload(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -39,115 +39,117 @@ export class ImagePickerComponent {
     img.onload = () => {
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
-
-      canvas.width = img.width;
-      canvas.height = img.height;
-      ctx.drawImage(img, 0, 0, img.width, img.height);
+    
+      // Scale down the image to avoid excessive processing
+      const MAX_SIZE = 300;
+      const scaleFactor = Math.min(MAX_SIZE / img.width, MAX_SIZE / img.height);
+      canvas.width = img.width * scaleFactor;
+      canvas.height = img.height * scaleFactor;
+    
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+      this.paletteColors = this.getColors(imageData);
 
       // Get the pixel data from the canvas
-      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
 
       // Extract the dominant, accent, highlight, and unique color
       const colors = this.getColors(imageData);
 
       this.paletteColors = {
-        dominant: colors.dominantColor,
-        accent: colors.accentColor,
-        highlight: colors.highlightColor,
-        unique: colors.uniqueColor,  // New "unique" standout color
+        dominant: colors.dominant,
+        accent: colors.accent,
+        highlight: colors.highlight,
+        unique: colors.unique,  // New "unique" standout color
+        secondary: colors.secondary,
+        tertiary: colors.tertiary,
+        shadow: colors.shadow,
+        contrast: colors.contrast,
       };
 
       // Set the themes based on the extracted colors
-      this.generateThemes();
 
       console.log('Extracted Theme Colors with Contrast and Unique Shade:', this.paletteColors);
     };
   }
 
-  // Generate light and dark themes based on the extracted palette
-  generateThemes(): void {
-    // Light theme
-    this.lightTheme = {
-      background: this.paletteColors.highlight,  // Light background
-      text: this.paletteColors.dominant,  // Darker text for contrast
-      accent: this.paletteColors.accent,  // Accent color
-      highlight: this.paletteColors.unique  // Highlight color
-    };
-
-    // Dark theme
-    this.darkTheme = {
-      background: this.darkenColor(this.paletteColors.dominant, 0.7),  // Darkened dominant color as background
-      text: this.lightenColor(this.paletteColors.accent, 0.8),  // Lighter text color for contrast
-      accent: this.paletteColors.highlight,  // Accent color
-      highlight: this.paletteColors.unique  // Highlight color
-    };
-
-    console.log('Light Theme:', this.lightTheme);
-    console.log('Dark Theme:', this.darkTheme);
-  }
 
   // Extract dominant, accent, highlight, and unique standout colors
-  getColors(data: Uint8ClampedArray): { dominantColor: string, accentColor: string, highlightColor: string, uniqueColor: string } {
+  getColors(data: Uint8ClampedArray): { 
+    dominant: string, accent: string, highlight: string, unique: string, 
+    secondary: string, tertiary: string, shadow: string, contrast: string 
+  } {
     const colorMap = new Map<string, number>();
-    let totalPixels = 0;
-
-    // Map color frequency
-    for (let i = 0; i < data.length; i += 4) {
+  
+    // Count pixel color occurrences
+    for (let i = 0; i < data.length; i += 16) {
       const rgb = `${data[i]},${data[i + 1]},${data[i + 2]}`;
       const count = colorMap.get(rgb) || 0;
       colorMap.set(rgb, count + 1);
-      totalPixels++;
     }
-
+  
     // Sort colors by frequency
     const sortedColors = Array.from(colorMap.entries()).sort((a, b) => b[1] - a[1]);
-    const dominantColor = this.rgbToHex(sortedColors[0][0]);
-
-    // Find accent color with noticeable difference
-    let accentColor = dominantColor;
-    for (let i = 1; i < sortedColors.length; i++) {
-      const candidateColor = this.rgbToHex(sortedColors[i][0]);
-      if (this.getColorDifference(dominantColor, candidateColor) > 50) {
-        accentColor = candidateColor;
-        break;
+  
+    // Get the most frequent color (dominant)
+    const dominant = this.rgbToHex(sortedColors[0][0]);
+  
+    // Find secondary and tertiary colors
+    const secondary = this.rgbToHex(sortedColors[1][0] || dominant);
+    const tertiary = this.rgbToHex(sortedColors[2][0] || dominant);
+  
+    // Find accent and highlight colors based on saturation and brightness
+    let accent = dominant, highlight = dominant, maxVibrancy = 0;
+    for (const [rgb] of sortedColors) {
+      const hex = this.rgbToHex(rgb);
+      const { brightness, saturation } = this.getBrightnessAndSaturation(hex);
+  
+      if (this.getColorDifference(dominant, hex) > 50) {
+        accent = hex;
       }
-    }
-
-    // Find highlight color with vibrancy
-    let highlightColor = dominantColor;
-    let maxVibrancy = 0;
-    for (let i = 0; i < sortedColors.length; i++) {
-      const candidateColor = this.rgbToHex(sortedColors[i][0]);
-      const { brightness, saturation } = this.getBrightnessAndSaturation(candidateColor);
-
-      if (brightness < 90 && brightness > 10 && saturation > 0.2) {
-        const vibrancy = saturation * brightness;
+      
+      if (brightness > 20 && saturation > 0.3) {
+        const vibrancy = brightness * saturation;
         if (vibrancy > maxVibrancy) {
-          highlightColor = candidateColor;
+          highlight = hex;
           maxVibrancy = vibrancy;
         }
       }
     }
-
-    // Find a unique color that stands out from the others
-    let uniqueColor = dominantColor;
-    let maxDifference = 0;
-    for (let i = 0; i < sortedColors.length; i++) {
-      const candidateColor = this.rgbToHex(sortedColors[i][0]);
-      const diffFromdominant = this.getColorDifference(dominantColor, candidateColor);
-      const diffFromAccent = this.getColorDifference(accentColor, candidateColor);
-      const diffFromHighlight = this.getColorDifference(highlightColor, candidateColor);
-
-      // Check if this color stands out significantly compared to others
-      const totalDifference = diffFromdominant + diffFromAccent + diffFromHighlight;
-      if (totalDifference > maxDifference) {
-        uniqueColor = candidateColor;
-        maxDifference = totalDifference;
+  
+    // Find shadow color (darkest)
+    let shadow = dominant;
+    for (const [rgb] of sortedColors) {
+      const hex = this.rgbToHex(rgb);
+      if (this.getBrightnessAndSaturation(hex).brightness < this.getBrightnessAndSaturation(shadow).brightness) {
+        shadow = hex;
       }
     }
-
-    return { dominantColor, accentColor, highlightColor, uniqueColor };
+  
+    // Find contrast color (most different from dominant)
+    let contrast = dominant, maxDiff = 0;
+    for (const [rgb] of sortedColors) {
+      const hex = this.rgbToHex(rgb);
+      const diff = this.getColorDifference(dominant, hex);
+      if (diff > maxDiff) {
+        contrast = hex;
+        maxDiff = diff;
+      }
+    }
+  
+    // Find unique standout color
+    let unique = dominant, maxUniqueDiff = 0;
+    for (const [rgb] of sortedColors) {
+      const hex = this.rgbToHex(rgb);
+      const totalDiff = this.getColorDifference(dominant, hex) + this.getColorDifference(accent, hex) + this.getColorDifference(highlight, hex);
+      if (totalDiff > maxUniqueDiff) {
+        unique = hex;
+        maxUniqueDiff = totalDiff;
+      }
+    }
+  
+    return { dominant, accent, highlight, unique, secondary, tertiary, shadow, contrast };
   }
+  
 
   // Convert RGB string to HEX
   rgbToHex(rgb: string): string {

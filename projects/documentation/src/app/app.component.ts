@@ -2,9 +2,6 @@ import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import {
-  ButtonComponent,
-  AccordionComponent,
-  AccordionItemComponent,
   LayoutComponent,
   AvatarComponent,
   HeaderComponent,
@@ -20,9 +17,6 @@ import {
   imports: [
     CommonModule,
     RouterOutlet,
-    ButtonComponent,
-    AccordionComponent,
-    AccordionItemComponent,
     LayoutComponent,
     RouterOutlet,
     AvatarComponent,
@@ -81,6 +75,11 @@ export class AppComponent implements OnInit {
       icon :'assets/progress-bar.svg',
       title: 'image picker',
       link: 'imagepicker',
+    },
+    {
+      icon :'assets/progress-bar.svg',
+      title: 'tooltip',
+      link: 'tooltip',
     },
   ];
 }

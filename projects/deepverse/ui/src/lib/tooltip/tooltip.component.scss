@@ -1,0 +1,154 @@
+:host(.un-tooltip) {
+    display: flex;
+    flex-direction: column;
+    min-width: 40px;
+    max-width: 240px;
+    gap: 4px;
+    padding: 8px;
+    box-sizing: border-box;
+    position: fixed;
+    width: max-content;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 400;
+    background: var(--tooltipBg);
+    color: var(--tootipColor);
+    box-shadow: 0px 4px 24px 0px #0000001A;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  
+  
+    &:not(.no-tip) {
+      &::after {
+        content: "";
+        position: absolute;
+        height: 0px;
+        width: 0px;
+        border-bottom-right-radius: 2px;
+        border: 5px solid;
+        border-color: transparent var(--tooltipBg) var(--tooltipBg) transparent;
+        margin: auto;
+        pointer-events: none;
+      }
+    }
+  }
+  
+  // postion controllers
+  :host(.tooltip-from-top) {
+    transform: translateX(-50%) translateY(-10px);
+  
+    &:after {
+      left: calc(50% + var(--tipOffset));
+      top: 100%;
+      transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    }
+  }
+  
+  :host(.tooltip-from-top-right) {
+    transform: translateX(10px) translateY(-10px);
+  
+    &:after {
+      right: calc(10px + var(--tipOffset));
+      top: 100%;
+      transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    }
+  }
+  
+  :host(.tooltip-from-top-left) {
+    transform: translateX(-10px) translateY(-10px);
+  
+    &:after {
+      left: calc(20px + var(--tipOffset));
+      top: 100%;
+      transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    }
+  }
+  
+  :host(.tooltip-from-bottom) {
+    transform: translateX(-50%) translateY(10px);
+  
+    &:after {
+      left: calc(50% + var(--tipOffset));
+      bottom: 100%;
+      transform: translateX(-50%) translateY(50%) rotate(-135deg);
+    }
+  }
+  
+  :host(.tooltip-from-bottom-right) {
+    transform: translateX(10px) translateY(10px);
+  
+    &:after {
+      right: calc(10px + var(--tipOffset));
+      bottom: 100%;
+      transform: translateX(-50%) translateY(50%) rotate(-135deg);
+    }
+  }
+  
+  :host(.tooltip-from-bottom-left) {
+    transform: translateX(-10px) translateY(10px);
+  
+    &:after {
+      left: calc(20px + var(--tipOffset));
+      bottom: 100%;
+      transform: translateX(-50%) translateY(50%) rotate(-135deg);
+    }
+  }
+  
+  :host(.tooltip-from-left) {
+    transform: translateX(-10px) translateY(-50%);
+  
+    &:after {
+      left: 100%;
+      bottom: calc(50% + var(--tipOffset));
+      transform: translateX(-50%) translateY(50%) rotate(-45deg);
+    }
+  }
+  
+  :host(.tooltip-from-left-top) {
+    transform: translateX(-10px) translateY(-10px);
+  
+    &:after {
+      left: 100%;
+      top: calc(10px + var(--tipOffset));
+      transform: translateX(-50%) translateY(50%) rotate(-45deg);
+    }
+  }
+  
+  :host(.tooltip-from-left-bottom) {
+    transform: translateX(-10px) translateY(calc(-50% + 10px));
+  
+    &:after {
+      left: 100%;
+      bottom: calc(20px + var(--tipOffset));
+      transform: translateX(-50%) translateY(50%) rotate(-45deg);
+    }
+  }
+  
+  :host(.tooltip-from-right) {
+    transform: translateX(10px) translateY(-50%);
+  
+    &:after {
+      right: 100%;
+      bottom: calc(50% + var(--tipOffset));
+      transform: translateX(50%) translateY(50%) rotate(135deg);
+    }
+  }
+  
+  :host(.tooltip-from-right-top) {
+    transform: translateX(10px) translateY(-10px);
+  
+    &:after {
+      right: 100%;
+      top: calc(10px + var(--tipOffset));
+      transform: translateX(50%) translateY(50%) rotate(135deg);
+    }
+  }
+  
+  :host(.tooltip-from-right-bottom) {
+    transform: translateX(10px) translateY(calc(-50% + 10px));
+  
+    &:after {
+      right: 100%;
+      bottom: calc(20px + var(--tipOffset));
+      transform: translateX(50%) translateY(50%) rotate(135deg);
+    }
+  }

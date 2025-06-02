@@ -7,6 +7,7 @@ import { ImageSliderDemoComponent } from './component/image-slider/image-slider.
 import { ProgressBarDemoComponent } from './component/progress-bar/progress-bar.component';
 import { AlertDemoComponent } from './component/alert/alert.component';
 import { ImagePickerComponent } from './component/image-picker/image-picker.component';
+import { Tooltip } from './component/tooltip/tooltip';
 
 export const routes: Routes = [
   {
@@ -40,5 +41,9 @@ export const routes: Routes = [
   {
     path: 'imagepicker',
     component: ImagePickerComponent,
+  },
+  {
+    path: 'tooltip',
+    component: Tooltip,
   },
 ];

@@ -4,7 +4,7 @@ import { AvatarComponent, ImageSliderComponent } from '@deepverse/ui';
 @Component({
   selector: 'app-image-slider',
   standalone: true,
-  imports: [CommonModule, ImageSliderComponent, AvatarComponent],
+  imports: [CommonModule, ImageSliderComponent],
   templateUrl: './image-slider.component.html',
   styleUrls: ['./image-slider.component.scss'],
 })

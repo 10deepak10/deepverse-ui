@@ -4,69 +4,9 @@
 <div *ngIf="imageSrc" class="image-container">
   <img [src]="imageSrc" id="uploadedImage" alt="Uploaded Image">
 </div>
-<div class="card" [style.background]="paletteColors.dominant" [style.color]="paletteColors.highlight">
-  <h3 class="heading3"> card heading</h3>
-  <span class="">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas explicabo commodi rerum, consectetur atque saepe. Fugiat odit eaque corrupti asperiores neque fuga, quidem quaerat in itaque nihil rerum ut dolorum deleniti saepe labore exercitationem et nisi doloribus voluptas culpa rem.</span>
-  <button [style.background]="paletteColors.unique" [style.color]="paletteColors.accent">action</button>
-</div>
 
-
-
-<!-- Display extracted colors in small visual boxes -->
-<div *ngIf="paletteColors.dominant && paletteColors.accent && paletteColors.highlight" class="color-showcase">
-  <div class="color-box" [style.background]="paletteColors.dominant">
-    Background Color: {{ paletteColors.dominant }}
-  </div>
-  <div class="color-box" [style.background]="paletteColors.accent">
-    Accent Color: {{ paletteColors.accent }}
-  </div>
-  <div class="color-box" [style.background]="paletteColors.highlight">
-    Highlight Color: {{ paletteColors.highlight }}
-  </div>
-  <div class="color-box" [style.background]="paletteColors.unique">
-    unique Color: {{ paletteColors.unique }}
-  </div>
- 
-</div>
-<h1>light theme</h1>
-<div class="color-showcase">
-  <div class="color-box" [style.background]="lightTheme.background">
-    background Color: {{ lightTheme.background }}
-  </div>
-  <div class="color-box" [style.background]="lightTheme.accent">
-    accent Color: {{ lightTheme.accent }}
-  </div>
-  <div class="color-box" [style.background]="lightTheme.highlight">
-    highlight Color: {{ lightTheme.highlight }}
-  </div>
-  <div class="color-box" [style.background]="lightTheme.text">
-    text Color: {{ lightTheme.text }}
-  </div>
-</div>
-   
-    <div class="card" [style.background]="lightTheme.background" [style.color]="lightTheme.text">
-        <h3 class="heading3"> card heading</h3>
-        <span class="">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas explicabo commodi rerum, consectetur atque saepe. Fugiat odit eaque corrupti asperiores neque fuga, quidem quaerat in itaque nihil rerum ut dolorum deleniti saepe labore exercitationem et nisi doloribus voluptas culpa rem.</span>
-        <button [style.background]="lightTheme.accent" [style.color]="lightTheme.highlight">action</button>
-    </div>
-    <div class="card" [style.background]="darkTheme.background" [style.color]="darkTheme.text">
-        <h3 class="heading3"> card heading</h3>
-        <span class="">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas explicabo commodi rerum, consectetur atque saepe. Fugiat odit eaque corrupti asperiores neque fuga, quidem quaerat in itaque nihil rerum ut dolorum deleniti saepe labore exercitationem et nisi doloribus voluptas culpa rem.</span>
-        <button [style.background]="darkTheme.accent" [style.color]="darkTheme.highlight">action</button>
-    </div>
-
-<h1>dark theme</h1>
-<div class="color-showcase">
-  <div class="color-box" [style.background]="darkTheme.background">
-    background Color: {{ darkTheme.background }}
-  </div>
-  <div class="color-box" [style.background]="darkTheme.accent">
-    accent Color: {{ darkTheme.accent }}
-  </div>
-  <div class="color-box" [style.background]="darkTheme.highlight">
-    highlight Color: {{ darkTheme.highlight }}
-  </div>
-  <div class="color-box" [style.background]="darkTheme.text">
-    text Color: {{ darkTheme.text }}
+<div  class="color-showcase">
+  <div class="color-box" *ngFor="let color of paletteColors | keyvalue" [style.background]="color.value">
+   {{color.key}}: {{ color.value }}
   </div>
 </div>
