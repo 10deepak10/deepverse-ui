@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
-import { TooltipComponent, TooltipDirective } from '@deepverse/ui';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { IconComponent, TooltipComponent, TooltipDirective } from '@deepverse/ui';
 
 @Component({
   selector: 'app-tooltip',
-  imports: [TooltipDirective, TooltipComponent],
+  imports: [TooltipDirective, TooltipComponent ,IconComponent],
   templateUrl: './tooltip.html',
-  styleUrl: './tooltip.scss'
+  styleUrl: './tooltip.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Tooltip {
 

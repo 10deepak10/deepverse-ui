@@ -4,6 +4,7 @@
 
 export * from './lib/ui.service';
 export * from './lib/ui.component';
+export * from './lib/icon/icon.component';
 export * from './lib/layout/layout.component';
 export * from './lib/header/header.component';
 export * from './lib/sidebar/sidebar.component';

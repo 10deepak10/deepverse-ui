@@ -7,6 +7,7 @@ import {
   OnDestroy,
   Inject,
   PLATFORM_ID,
+  ChangeDetectorRef,
 } from '@angular/core';
 import { TooltipService , ItooltipPosition } from './tooltip.service';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
@@ -63,7 +64,8 @@ export class TooltipDirective implements OnDestroy {
     private elementRef: ElementRef,
     private viewContainerRef: ViewContainerRef,
     private tooltipService: TooltipService,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private cdr: ChangeDetectorRef
   ) {
     this.isTouchDevice =
     isPlatformBrowser(platformId) &&
@@ -71,10 +73,6 @@ export class TooltipDirective implements OnDestroy {
     matchMedia('(pointer: coarse)').matches;
   }
 
-  private intializeState() {
-    this.isTooltipVisible = false;
-    this.isHoveringTooltip = false;
-  }
   @HostListener('click', ['$event'])
   onTooltipClick(event: Event) {
     if (!this.isTouchDevice) return;
@@ -94,7 +92,6 @@ export class TooltipDirective implements OnDestroy {
 
   @HostListener('mouseenter')
   onMouseEnter() {
-    // this.intializeState();
     if (this.isTouchDevice) return;
     clearTimeout(this.mouseLeaveDebounce); // Clear any pending hide
     this.mouseEnterDebounce = setTimeout(() => {
@@ -223,6 +220,7 @@ export class TooltipDirective implements OnDestroy {
       if (this.isTouchDevice) {
         document.addEventListener('click', this.handleOutsideClick, true);
       }
+      this.cdr.markForCheck();
     }, this.tooltipDelay);
   }
 
@@ -250,7 +248,6 @@ export class TooltipDirective implements OnDestroy {
       );
     }
     if (this.isTouchDevice) {
-      console.log('kk');
       document.removeEventListener('click', this.handleOutsideClick, true);
     }
 

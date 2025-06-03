@@ -1,0 +1,115 @@
+img {
+  transition: 0.4s;
+  display: block;
+  width: var(--size);
+  height: var(--size);
+}
+
+.hover_black:hover,
+.filter_black {
+  filter: brightness(0) invert(28%);
+}
+
+.hover_gray:hover,
+.filter_gray {
+  filter: brightness(0) invert(62%);
+}
+
+.hover_white:hover,
+.filter_white {
+  filter: brightness(0) invert(1);
+}
+
+.hover_default:hover {
+  filter: none;
+}
+
+:host {
+  width: fit-content;
+  height: fit-content;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  .icon {
+    position: relative;
+    flex-shrink: 0;
+    width: var(--size);
+    height: var(--size);
+    text-align: center;
+    background: var(--color);
+    background-position: center;
+    transition: .2s;
+    mask-size: var(--size) var(--size);
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-size: var(--size) var(--size);
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+
+    &:hover {
+      background: var(--hover);
+    }
+
+    &:active {
+      background: var(--active);
+    }
+  }
+}
+
+.icon-container {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: var(--bgSize);
+  height: var(--bgSize);
+  background: var(--bg);
+  border-radius: var(--rounded);
+  flex-shrink: 0;
+  box-sizing: border-box;
+  border: 1px solid var(--borderColor);
+  transition: .2s;
+  color: var(--color);
+  font-size: var(--size);
+  
+  &:hover:not(.disabled) {
+    background: var(--bgHover);
+    color: var(--hover);
+
+    .icon {
+      background: var(--hover);
+    }
+  }
+
+  &:active {
+    background: var(--bgActive);
+    color: var(--active);
+
+    .icon {
+      background: var(--active);
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    background: var(--grey-300);
+    color: var(--grey-700) ;
+    border-color: var(--grey-300);
+    .icon {
+      background: var(--grey-700);
+    }
+
+    &:active {
+      pointer-events: none;
+    }
+  }
+}
+
+:host(.disabled) {
+  cursor: not-allowed;
+
+  &:active {
+    pointer-events: none;
+  }
+}

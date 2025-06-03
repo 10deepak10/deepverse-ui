@@ -1,0 +1,16 @@
+<ng-container *ngTemplateOutlet=" _asBtn ? iconBackground : mainIcon "></ng-container>
+<ng-template #iconBackground>
+  <div
+    class="icon-container"
+    [class.disabled]="_disabled"
+    [style]="getIconBgStyles()"
+    [style.border]="borderColor !=='transparent'"
+    [style.padding]="_padding">
+    <ng-container *ngTemplateOutlet="mainIcon"></ng-container>
+    <ng-content></ng-content>
+  </div>
+</ng-template>
+<ng-template #mainIcon>
+  <span *ngIf="!_defaultColor" class="icon" [style]="getIconStyles()"></span>
+  <img *ngIf="icon && _defaultColor"  class="{{classString.filter}} {{classString.hover}}" [src]="iconPrefix+icon" [style.--size]="size+'px'" [height]="size" [width]="size" [alt]="alt" />
+</ng-template>
