@@ -11,7 +11,6 @@ import { CommonModule } from '@angular/common';
 export class LayoutComponent{
   @Input() layoutType : 'full-header'| 'full-sidebar' =  'full-header' ;
 
-
   @Input() footerFixed: boolean = true;
 
 }

@@ -19,3 +19,7 @@ export * from './lib/alert/alert.component';
 export * from './lib/tooltip/tooltip.component';
 export * from './lib/tooltip/tooltip.directive';
 export * from './lib/tooltip/tooltip.service';
+export * from './lib/table/table';
+export * from './lib/table/table-item/table-item';
+export * from './lib/table/directives/head';
+export * from './lib/table/directives/cell';

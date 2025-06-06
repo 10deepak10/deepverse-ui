@@ -1,0 +1,113 @@
+:host {
+  --table-bg: #1e1e1e;
+  --table-text: #f0f0f0;
+  --table-header-bg: #2e2e2e;
+  --table-header-text: #ffffff;
+  --table-hover-bg: #333333;
+  --table-border-color: #444444;
+  display: block;
+  width: 100%;
+  overflow: auto;
+}
+
+
+.dv-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--table-font-family);
+  font-size: var(--table-font-size);
+  color: var(--table-text);
+  background-color: var(--table-bg);
+
+  thead {
+    background-color: var(--table-header-bg);
+    color: var(--table-header-text);
+
+    th {
+      padding: 12px 16px;
+      text-align: left;
+      font-weight: 600;
+      border-bottom: 2px solid var(--table-border-color);
+      white-space: nowrap;
+
+      &:first-child {
+        border-top-left-radius: 8px;
+      }
+
+      &:last-child {
+        border-top-right-radius: 8px;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid var(--table-border-color);
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: var(--table-hover-bg);
+      }
+    }
+
+    td {
+      padding: 12px 16px;
+      text-align: left;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+  }
+
+  th.sticky-left,
+  td.sticky-left {
+    position: sticky;
+    z-index: 2;
+  }
+  th.sticky-left{
+    background-color: var(--table-header-bg);
+  }
+  td.sticky-left {
+    background-color: var(--table-bg);
+  }
+
+  th.sticky-left {
+    z-index: 3; // above td
+  }
+
+  // Responsive scroll table (optional)
+  @media (max-width: 768px) {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+
+    thead {
+      display: none;
+    }
+
+    tbody,
+    tr,
+    td {
+      display: block;
+      width: 100%;
+    }
+
+    tr {
+      margin-bottom: 16px;
+    }
+
+    td {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--table-border-color);
+      padding: 12px 16px;
+
+      &::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--table-header-text);
+        flex: 1;
+      }
+    }
+  }
+}
