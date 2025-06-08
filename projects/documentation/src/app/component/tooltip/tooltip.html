@@ -1,7 +1,7 @@
 <span [dvTooltip]="'tootip work'" [tooltipBgColor]="'#fff'" tooltipOnClick [tooltipTextColor]="'#000'">
   <dv-icon [icon]="'assets/home.svg'" [color]="['#fff']" [size]="24"></dv-icon>
 </span>
-
+<button (click)="dynamic.set(!dynamic())">click</button>
 
 <dv-table [rows]="rows">
   <dv-table-item label="Full Name" key="name" >
@@ -12,7 +12,7 @@
       {{ row.name }}
     </ng-template>
   </dv-table-item>
-
+@if(dynamic()){
   <dv-table-item label="Age" key="age">
     <ng-template dvHeader>
       <span style="color: teal;">🎂 Age</span>
@@ -21,6 +21,8 @@
       {{ row.age }}
     </ng-template>
   </dv-table-item>
+}
+ 
 
   <dv-table-item label="Role" key="role">
     <ng-template dvCell let-row>
