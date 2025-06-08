@@ -19,3 +19,6 @@ export * from './lib/alert/alert.component';
 export * from './lib/tooltip/tooltip.component';
 export * from './lib/tooltip/tooltip.directive';
 export * from './lib/tooltip/tooltip.service';
+export * from './lib/tabs/tabs/tabs.component';
+export * from './lib/tabs/tab-item/tab-item.component';
+export * from './lib/tabs/tabs.module';
