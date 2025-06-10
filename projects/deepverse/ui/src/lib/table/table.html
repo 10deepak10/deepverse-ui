@@ -1,27 +1,38 @@
 <table class="dv-table">
-    <thead>
-      <tr>
-        <th *ngFor="let col of columns">
-          <ng-container *ngIf="col.headerTemplateRef; else defaultHeader">
-            <ng-container *ngTemplateOutlet="col.headerTemplateRef.templateRef"></ng-container>
-          </ng-container>
-          <ng-template #defaultHeader>{{ col.label }}</ng-template>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let row of rows">
-        <td *ngFor="let col of columns" [attr.data-label]="col.label">
-          <ng-container *ngIf="col.cellTemplateRef; else defaultCell">
-            <ng-container
-              *ngTemplateOutlet="col.cellTemplateRef.templateRef; context: { $implicit: row }">
-            </ng-container>
-          </ng-container>
-          <ng-template #defaultCell>
-            {{ col.key ? row[col.key] : '' }}
-          </ng-template>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  
+  <thead>
+    <tr>
+      <th
+        #thRef
+        *ngFor="let col of columns; let i = index"
+        [class.sticky-left]="col.sticky === 'left'"
+  [class.sticky-right]="col.sticky === 'right'"
+  [style.left.px]="col.sticky === 'left' ? stickyLeftOffsets()[i] : null"
+  [style.right.px]="col.sticky === 'right' ? stickyRightOffsets()[i] : null"
+      >
+        <ng-container *ngIf="col.headerTemplateRef?.templateRef; else defaultHeader">
+          <ng-container *ngTemplateOutlet="col.headerTemplateRef?.templateRef"></ng-container>
+        </ng-container>
+        <ng-template #defaultHeader>{{ col.label }}</ng-template>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of rows">
+      <td
+        *ngFor="let col of columns; let i = index"
+        [class.sticky-left]="col.sticky === 'left'"
+        [class.sticky-right]="col.sticky === 'right'"
+        [style.left.px]="col.sticky === 'left' ? stickyLeftOffsets()[i] : null"
+        [style.right.px]="col.sticky === 'right' ? stickyRightOffsets()[i] : null"
+        [attr.data-label]="col.label"
+      >
+        <ng-container *ngIf="col.cellTemplateRef?.templateRef; else defaultCell">
+          <ng-container *ngTemplateOutlet="col.cellTemplateRef?.templateRef; context: { $implicit: row }"></ng-container>
+        </ng-container>
+        <ng-template #defaultCell>
+          {{ col.key ? row[col.key] : '' }}
+        </ng-template>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -46,7 +46,9 @@
       transition: background-color 0.2s ease;
 
       &:hover {
-        background-color: var(--table-hover-bg);
+        td{
+          background-color: var(--table-hover-bg);
+        }
       }
     }
 
@@ -59,18 +61,23 @@
   }
 
   th.sticky-left,
-  td.sticky-left {
+  td.sticky-left ,
+  th.sticky-right,
+  td.sticky-right  {
     position: sticky;
     z-index: 2;
   }
-  th.sticky-left{
+  th.sticky-left
+  ,th.sticky-right{
     background-color: var(--table-header-bg);
   }
-  td.sticky-left {
+  td.sticky-left 
+  ,td.sticky-right{
     background-color: var(--table-bg);
   }
 
-  th.sticky-left {
+  th.sticky-left,
+  th.sticky-right  {
     z-index: 3; // above td
   }
 
