@@ -5,14 +5,17 @@
         #thRef
         *ngFor="let col of columns; let i = index"
         [class.sticky-left]="col.sticky === 'left'"
-  [class.sticky-right]="col.sticky === 'right'"
-  [style.left.px]="col.sticky === 'left' ? stickyLeftOffsets()[i] : null"
-  [style.right.px]="col.sticky === 'right' ? stickyRightOffsets()[i] : null"
+        [class.sticky-right]="col.sticky === 'right'"
+        [style.left.px]="col.sticky === 'left' ? stickyLeftOffsets()[i] : null"
+        [style.right.px]="col.sticky === 'right' ? stickyRightOffsets()[i] : null"
       >
-        <ng-container *ngIf="col.headerTemplateRef?.templateRef; else defaultHeader">
-          <ng-container *ngTemplateOutlet="col.headerTemplateRef?.templateRef"></ng-container>
-        </ng-container>
-        <ng-template #defaultHeader>{{ col.label }}</ng-template>
+        <div class="th-content" [style.width.px]="colWidths[i]-32">
+          <ng-container *ngIf="col.headerTemplateRef?.templateRef; else defaultHeader">
+            <ng-container *ngTemplateOutlet="col.headerTemplateRef?.templateRef"></ng-container>
+          </ng-container>
+          <ng-template #defaultHeader>{{ col.label }}</ng-template>
+        </div>
+        <div class="resize-handle" (mousedown)="onResizeStart($event, i)"></div>
       </th>
     </tr>
   </thead>
