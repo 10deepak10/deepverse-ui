@@ -18,5 +18,11 @@
   --theme-warning-color: #f1c40f;    /* Yellow */
   --theme-error-color: #e74c3c;      /* Red */
 }
+dv-sidebar.sidebar-component{
+  position: absolute;
+  display: flex;
+  height: 100%;
+  border-radius: 12px;
+}
 
 

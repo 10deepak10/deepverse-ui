@@ -3,7 +3,9 @@
     <ng-container *ngTemplateOutlet="headerTemplate" ></ng-container>
  </ng-container>
   <div class="content-container">
-    <ng-content select="dv-sidebar"></ng-content>
+    <div class="sidebar-container">
+      <ng-content select="dv-sidebar"></ng-content>
+    </div>
     <div class="layout-content" [ngClass]="footerFixed ? 'footer-fixed' :'footer-with-content'">
       <ng-container *ngIf="layoutType == 'full-sidebar'">
         <ng-container *ngTemplateOutlet="headerTemplate"></ng-container>

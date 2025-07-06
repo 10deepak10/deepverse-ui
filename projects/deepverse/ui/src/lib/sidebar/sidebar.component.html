@@ -1,88 +1,129 @@
+<ng-template #recursiveMenu let-items>
+  <ul class="sidebar-menu">
+    <ng-container *ngFor="let item of items">
+      <li *ngIf="item?.name === 'separatorPipe'" class="separator"></li>
+      <ng-container *ngIf="item?.name !== 'separatorPipe'">
+        <li>
+          <a
+            class="menu-item"
+            [routerLink]="item?.link"
+            [routerLinkActiveOptions]="{ exact: item?.exact }"
+            routerLinkActive="active"
+            (click)="item.isExpand = true; customLinks(item?.customLink)"
+          >
+            <img
+              *ngIf="item.icon"
+              [src]="config.iconPrefix + item.icon"
+              class="menu-icon"
+            />
+            <span class="menu-item-text">{{ item?.name }}</span>
+            <span class="tag" *ngIf="item?.tag">{{ item?.tag }}</span>
+          </a>
+          <svg
+            *ngIf="item?.children && (sidebarExpand || (isHovered && viewport == 'desktop'))"
+            width="1rem"
+            height="1rem"
+            viewBox="0 0 48 48"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="has-dropdown"
+            [class.is_expanded]="item.isExpand"
+            (click)="item.isExpand = !item.isExpand"
+          >
+            <rect width="48" height="48" fill="none" fill-opacity="0.01" />
+            <path
+              d="M37 18L25 30L13 18"
+              stroke="#fff"
+              stroke-width="4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </li>
+        <!-- Parent Item -->
+        <div
+          class="has-children"
+          *ngIf="item?.children"
+          [class.expanded]="item?.isExpand"
+        >
+          <!-- Recursive call -->
+          <ng-container
+            *ngTemplateOutlet="
+              recursiveMenu;
+              context: { $implicit: item.children }
+            "
+          ></ng-container>
+        </div>
+      </ng-container>
+    </ng-container>
+  </ul>
+</ng-template>
+
 <div
   class="sidebar-container"
-  [ngStyle]="{
-    '--offset': offset,
-    '--activeColor': Acolor,
-    '--bg': bg,
-    '--indicatorColor': indicatorColor,
-    '--hover': hover,
-    '--text': text
-  }"
+  #sidebarContainer
+  (mouseover)="isHovered = true"
+  (mouseleave)="isHovered = false"
 >
-  <div class="sidebar-wrapper" [style.width]="sidebarWidth">
-    <div class="sidebar-nav-container">
-      <ng-template #recursiveNav let-navGroup>
-        <div
-          class="sidebar-nav"
-          [ngClass]="navGroup.childnav ? 'has-child-nav' : ''"
-        >
-          <a
-            class="nav"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }"
-            [routerLink]="navGroup.link"
-          >
-          <div class="icon-container">
-            <span
-              class="nav-icon"
-              [style]="{
-                '-webkit-mask-image': 'url(' + navGroup.icon + ')',
-                'mask-image': 'url(' + navGroup.icon + ')'
-              }"
-            >
-            <div class="icon-bg"></div>
-            </span>
-          </div>
-            
-            <div class="nav-title-box">
-              <div class="nav-title">
-                <span> {{ navGroup.title }}</span>
-                <svg
-                  *ngIf="navGroup.childnav"
-                  width="1rem"
-                  height="1rem"
-                  viewBox="0 0 48 48"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    width="48"
-                    height="48"
-                    fill="white"
-                    fill-opacity="0.01"
-                  />
-                  <path
-                    d="M37 18L25 30L13 18"
-                    stroke="white"
-                    stroke-width="4"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-            </div>
-          </a>
-          <div *ngIf="navGroup.childnav" class="child-nav">
-            <ng-container
-              *ngFor="let childNav of navGroup.childnav"
-              [ngTemplateOutlet]="recursiveNav"
-              [ngTemplateOutletContext]="{ $implicit: childNav }"
-            ></ng-container>
-          </div>
-        </div>
-      </ng-template>
-
-      <ng-container *ngFor="let navGroup of navGroups">
-        <ng-container
-          *ngTemplateOutlet="recursiveNav; context: { $implicit: navGroup }"
-        ></ng-container>
-      </ng-container>
-    </div>
-    <div class="sidebar-action" (click)="toggleSidebarWidth()"></div>
-  </div>
-  <!-- <div class="content-wrapper">
-    <div class="content">
+  <div class="sidebar">
+    <ng-content select=".header"></ng-content>
+    <ng-container *ngIf="config">
+      <ng-container
+        *ngTemplateOutlet="
+          recursiveMenu;
+          context: { $implicit: config.menuItems }
+        "
+      ></ng-container>
+    </ng-container>
+    <ng-container *ngIf="!config">
       <ng-content></ng-content>
-    </div>
-  </div> -->
+    </ng-container>
+  </div>
+  <div *ngIf="config?.footerLinks?.length > 0 && config" class="footer_links">
+    <ul class="footer-menu">
+      <ng-container *ngFor="let item of config.footerLinks">
+        <li>
+          <a
+            class="footer-menu-item"
+            *ngIf="item.name != 'separatorPipe'"
+            [routerLink]="item?.link"
+            [routerLinkActiveOptions]="{ exact: item?.exact }"
+            routerLinkActive="active"
+            (click)="customLinks(item.customLink)"
+          >
+            <img
+              *ngIf="item?.icon"
+              src="{{ config?.iconPrefix + item.icon }}"
+              class="footer-menu-icon"
+            />
+            <span class="footer-menu-item-text">{{ item.name }}</span>
+          </a>
+        </li>
+
+        <li *ngIf="item.name == 'separatorPipe'" class="separator"></li>
+      </ng-container>
+    </ul>
+  </div>
 </div>
+<span
+  (click)="toggleSidebar()"
+  *ngIf="expandState == 'default'"
+  class="collapsed-btn"
+>
+  <svg
+   [class.rotate]="(!sidebarExpand)"
+    width="800px"
+    height="800px"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M15 6L9 12L15 18"
+      stroke="#ffffff"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+</span>
