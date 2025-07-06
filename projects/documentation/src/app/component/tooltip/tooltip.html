@@ -3,7 +3,7 @@
 </span>
 <button (click)="dynamic.set(!dynamic())">click</button>
 
-  <dv-table [rows]="rows">
+  <dv-table [rows]="rows" class="demo-table">
     <!-- Sticky column -->
     <dv-table-item label="Full Name" key="name" >
       <ng-template dvHeader>
@@ -38,6 +38,6 @@
     <dv-table-item label="Shift" key="shift"></dv-table-item>
     <dv-table-item label="City" key="city"></dv-table-item>
     <dv-table-item label="State" key="state"></dv-table-item>
-    <dv-table-item label="Country" key="country" [sticky]="'right'"></dv-table-item>
+    <dv-table-item label="Country" key="country"></dv-table-item>
     <dv-table-item label="Rating" key="rating" [sticky]="'right'" ></dv-table-item>
   </dv-table>
