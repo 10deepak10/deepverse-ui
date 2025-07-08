@@ -1,0 +1,40 @@
+<button (click)="dynamic.set(!dynamic())">click</button>
+
+  <dv-table [rows]="rows" class="demo-table">
+    <!-- Sticky column -->
+    <dv-table-item label="Full Name" key="name" >
+      <ng-template dvHeader>
+        <strong>👤 Name</strong>
+      </ng-template>
+      <ng-template dvCell let-row>
+        {{ row.name }}
+      </ng-template>
+    </dv-table-item>
+
+    <!-- Conditional -->
+     @if(dynamic()){
+      <dv-table-item [sticky]="'left'" label="Age" key="age">
+        <ng-template dvHeader>🎂 Age</ng-template>
+        <ng-template dvCell let-row>{{ row.age }}</ng-template>
+      </dv-table-item>
+     }
+
+    <dv-table-item  label="Role" key="role"></dv-table-item>
+    <dv-table-item [sticky]="'left'" label="Email" key="email"></dv-table-item>
+    <dv-table-item label="Dept" key="dept"></dv-table-item>
+    <dv-table-item label="Location" key="location"></dv-table-item>
+    <dv-table-item label="Start Date" key="startDate"></dv-table-item>
+    <dv-table-item label="Salary" key="salary"></dv-table-item>
+    <dv-table-item label="Status" key="status"></dv-table-item>
+    <dv-table-item label="Phone" key="phone"></dv-table-item>
+    <dv-table-item label="Ext"  key="extension"></dv-table-item>
+    <dv-table-item label="Manager" key="manager"></dv-table-item>
+    <dv-table-item label="Team"   key="team"></dv-table-item>
+    <dv-table-item label="Bonus" key="bonus"></dv-table-item>
+    <dv-table-item label="Project" key="project"></dv-table-item>
+    <dv-table-item label="Shift" key="shift"></dv-table-item>
+    <dv-table-item label="City" key="city"></dv-table-item>
+    <dv-table-item label="State" key="state"></dv-table-item>
+    <dv-table-item label="Country" key="country"></dv-table-item>
+    <dv-table-item label="Rating" key="rating" [sticky]="'right'" ></dv-table-item>
+  </dv-table>

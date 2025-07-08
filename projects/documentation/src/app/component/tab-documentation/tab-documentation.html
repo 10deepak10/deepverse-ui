@@ -1,0 +1,16 @@
+<button (click)="dynamic.set(!dynamic())">click</button>
+
+<dv-tabs>
+  <dv-tab-item label="Home" slug="home">
+    <p>Welcome to the home tab!</p>
+  </dv-tab-item>
+  @if(dynamic()){
+    <dv-tab-item label="Profile" slug="profile">
+      <p>This is your profile section.</p>
+    </dv-tab-item>
+  }
+ 
+  <dv-tab-item label="Settings" slug="settings">
+    <p>You cannot access this tab.</p>
+  </dv-tab-item>
+</dv-tabs>

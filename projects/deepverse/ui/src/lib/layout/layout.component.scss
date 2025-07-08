@@ -35,3 +35,10 @@
   
   }
 }
+.sidebar-container {
+  min-width: 84px;
+  transition: all 300ms ease;
+  &:has( > .expanded){
+    min-width: 284px;
+  }
+}

@@ -11,16 +11,23 @@
             routerLinkActive="active"
             (click)="item.isExpand = true; customLinks(item?.customLink)"
           >
-            <img
-              *ngIf="item.icon"
-              [src]="config.iconPrefix + item.icon"
+            <span
               class="menu-icon"
-            />
+              [style]="{
+                '-webkit-mask-image':
+                  'url(' + config?.iconPrefix + item.icon + ')',
+                'mask-image': 'url(' + config?.iconPrefix + item.icon + ')'
+              }"
+            >
+            </span>
             <span class="menu-item-text">{{ item?.name }}</span>
             <span class="tag" *ngIf="item?.tag">{{ item?.tag }}</span>
           </a>
           <svg
-            *ngIf="item?.children && (sidebarExpand || (isHovered && viewport == 'desktop'))"
+            *ngIf="
+              item?.children &&
+              (sidebarExpand || (isHovered && viewport == 'desktop'))
+            "
             width="1rem"
             height="1rem"
             viewBox="0 0 48 48"
@@ -111,7 +118,7 @@
   class="collapsed-btn"
 >
   <svg
-   [class.rotate]="(!sidebarExpand)"
+    [class.rotate]="!sidebarExpand"
     width="800px"
     height="800px"
     viewBox="0 0 24 24"

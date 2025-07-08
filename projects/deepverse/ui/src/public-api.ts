@@ -25,4 +25,5 @@ export * from './lib/table/directives/head';
 export * from './lib/table/directives/cell';
 export * from './lib/tabs/tabs/tabs.component';
 export * from './lib/tabs/tab-item/tab-item.component';
+export * from './lib/breadcrumb/breadcrumb';
 export * from './lib/tabs/tabs.module';

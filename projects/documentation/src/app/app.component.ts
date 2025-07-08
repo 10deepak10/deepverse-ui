@@ -7,6 +7,7 @@ import {
   HeaderComponent,
   SidebarComponent,
   FooterComponent,
+  Breadcrumb,
 } from '@deepverse/ui';
 
 @Component({
@@ -23,6 +24,7 @@ import {
     HeaderComponent,
     SidebarComponent,
     FooterComponent,
+    Breadcrumb
   ],
 })
 export class AppComponent implements OnInit {
@@ -35,247 +37,89 @@ export class AppComponent implements OnInit {
     hoverEffect: 'default',
     menuItems: [
       {
-        name: 'Dashboard',
+        name: 'Home',
+        link: '/',
+        exact: true,
+        icon: 'assets/icons/home.svg',
+      },
+      {
+        name: 'accordion',
         link: '/accordion',
         exact: true,
-        icon: 'assets/accordion.svg',
-        children: [
-          {
-            name: 'Admins',
-            link: '/users/admins',
-            icon: 'admin.svg',
-            children: [
-              {
-                name: 'Admins',
-                link: '/users/admins',
-                icon: 'admin.svg',
-                children: [
-                  {
-                    name: 'Admins',
-                    link: '/users/admins',
-                    icon: 'admin.svg',
-                  },
-                  {
-                    name: 'Clients',
-                    link: '/users/clients',
-                    icon: 'clients.svg',
-                  },
-                ],
-              },
-              {
-                name: 'Clients',
-                link: '/users/clients',
-                icon: 'clients.svg',
-                children: [
-                  {
-                    name: 'Admins',
-                    link: '/users/admins',
-                    icon: 'admin.svg',
-                  },
-                  {
-                    name: 'Clients',
-                    link: '/users/clients',
-                    icon: 'clients.svg',
-                  },
-                ],
-              },
-            ],
-          },
-          {
-            name: 'Clients',
-            link: '/users/clients',
-            icon: 'clients.svg',
-            children: [
-              {
-                name: 'Admins',
-                link: '/users/admins',
-                icon: 'admin.svg',
-              },
-              {
-                name: 'Clients',
-                link: '/users/clients',
-                icon: 'clients.svg',
-              },
-            ],
-          },
-          {
-            name: 'Admins',
-            link: '/users/admins',
-            icon: 'admin.svg',
-            children: [
-              {
-                name: 'Admins',
-                link: '/users/admins',
-                icon: 'admin.svg',
-                children: [
-                  {
-                    name: 'Admins',
-                    link: '/users/admins',
-                    icon: 'admin.svg',
-                  },
-                  {
-                    name: 'Clients',
-                    link: '/users/clients',
-                    icon: 'clients.svg',
-                  },
-                ],
-              },
-              {
-                name: 'Clients',
-                link: '/users/clients',
-                icon: 'clients.svg',
-                children: [
-                  {
-                    name: 'Admins',
-                    link: '/users/admins',
-                    icon: 'admin.svg',
-                  },
-                  {
-                    name: 'Clients',
-                    link: '/users/clients',
-                    icon: 'clients.svg',
-                  },
-                ],
-              },
-            ],
-          },
-          {
-            name: 'Admins',
-            link: '/users/admins',
-            icon: 'admin.svg',
-            children: [
-              {
-                name: 'Admins',
-                link: '/users/admins',
-                icon: 'admin.svg',
-                children: [
-                  {
-                    name: 'Admins',
-                    link: '/users/admins',
-                    icon: 'admin.svg',
-                  },
-                  {
-                    name: 'Clients',
-                    link: '/users/clients',
-                    icon: 'clients.svg',
-                  },
-                ],
-              },
-              {
-                name: 'Clients',
-                link: '/users/clients',
-                icon: 'clients.svg',
-                children: [
-                  {
-                    name: 'Admins',
-                    link: '/users/admins',
-                    icon: 'admin.svg',
-                  },
-                  {
-                    name: 'Clients',
-                    link: '/users/clients',
-                    icon: 'clients.svg',
-                  },
-                ],
-              },
-            ],
-          },
-          {
-            name: 'Admins',
-            link: '/users/admins',
-            icon: 'admin.svg',
-            children: [
-              {
-                name: 'Admins',
-                link: '/users/admins',
-                icon: 'admin.svg',
-                children: [
-                  {
-                    name: 'Admins',
-                    link: '/users/admins',
-                    icon: 'admin.svg',
-                  },
-                  {
-                    name: 'Clients',
-                    link: '/users/clients',
-                    icon: 'clients.svg',
-                  },
-                ],
-              },
-              {
-                name: 'Clients',
-                link: '/users/clients',
-                icon: 'clients.svg',
-                children: [
-                  {
-                    name: 'Admins',
-                    link: '/users/admins',
-                    icon: 'admin.svg',
-                  },
-                  {
-                    name: 'Clients',
-                    link: '/users/clients',
-                    icon: 'clients.svg',
-                  },
-                ],
-              },
-            ],
-          },
-        ],
+        icon: 'assets/icons/accordion.svg',
       },
       {
-        name: 'colors',
-        link: '/button',
+        name: 'Alert',
+        link: '/alert',
         exact: true,
-        icon: 'assets/button.svg',
+        icon: 'assets/icons/alert.svg',
       },
       {
-        name: 'colors',
-        link: '/button',
+        name: 'Anchor Menu',
+        link: '/anchor-menu',
         exact: true,
-        icon: 'assets/button.svg',
+        icon: 'assets/icons/anchor-menu.svg',
       },
       {
-        name: 'colors',
-        link: '/button',
+        name: 'Avatar',
+        link: '/avatar',
         exact: true,
-        icon: 'assets/button.svg',
+        icon: 'assets/icons/avatar.svg',
       },
       {
-        name: 'colors',
-        link: '/button',
+        name: 'Breadcrumb',
+        link: '/breadcrumb',
         exact: true,
-        icon: 'assets/button.svg',
+        icon: 'assets/icons/breadcrumb.svg',
       },
       {
-        name: 'colors',
+        name: 'Button',
         link: '/button',
         exact: true,
-        icon: 'assets/button.svg',
+        icon: 'assets/icons/button.svg',
+      },
+    
+      {
+        name: 'Icon',
+        link: '/icons',
+        exact: true,
+        icon: 'assets/icons/star.svg',
       },
       {
-        name: 'colors',
-        link: '/button',
+        name: 'Image Picker',
+        link: '/imagepicker',
         exact: true,
-        icon: 'assets/button.svg',
+        icon: 'assets/icons/color-picker.svg',
       },
       {
-        name: 'colors',
-        link: '/button',
+        name: 'Progress Bar',
+        link: '/progress-bar',
         exact: true,
-        icon: 'assets/button.svg',
+        icon: 'assets/icons/bars-progress.svg',
       },
       {
-        name: 'colors',
-        link: '/button',
+        name: 'Slider',
+        link: '/image-slider',
         exact: true,
-        icon: 'assets/button.svg',
+        icon: 'assets/icons/slider.svg',
       },
       {
-        name: 'colors',
-        link: '/button',
+        name: 'Table',
+        link: '/table',
         exact: true,
-        icon: 'assets/button.svg',
+        icon: 'assets/icons/table.svg',
+      },
+      {
+        name: 'tab',
+        link: '/tab',
+        exact: true,
+        icon: 'assets/icons/tab.svg',
+      },
+      {
+        name: 'Tooltip',
+        link: '/tooltip',
+        exact: true,
+        icon: 'assets/icons/tooltip.svg',
       },
     ],
     footerLinks: [

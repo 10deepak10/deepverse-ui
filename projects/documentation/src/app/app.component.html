@@ -12,13 +12,15 @@
       </div>
     </div>
     <div left>
+    <dv-breadcrumb/>
       <div>
         logo
       </div>
     </div>
-  </dv-header>
-  <!-- <dv-sidebar [config]="config">
-  </dv-sidebar>  -->
+  </dv-header >
+  <dv-sidebar [config]="config">
+    <div class="header"> ffff</div>
+  </dv-sidebar> 
   <router-outlet></router-outlet>
   <dv-footer></dv-footer>
  </dv-layout>

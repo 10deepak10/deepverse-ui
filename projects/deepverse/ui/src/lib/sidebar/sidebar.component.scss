@@ -18,6 +18,9 @@
   box-sizing: border-box;
   min-width: 84px;
 
+  --text-color : #fff;
+  --active-icon : #aaffff;
+
   @mixin icon-style {
     flex-shrink: 0;
     position: relative;
@@ -291,7 +294,7 @@
 
             .menu-icon,
             .footer-menu-icon {
-              filter: brightness(1%) invert(0);
+              background-color: var(--active-icon);
             }
 
             .menu-item-text,
@@ -312,7 +315,11 @@
             @include icon-style();
             width: 20px;
             height: 20px;
-            filter: brightness(0%) invert(1);
+            background-color: var(--text-color);
+            -webkit-mask-size: 100%;
+            mask-size: 100%;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
           }
         }
 

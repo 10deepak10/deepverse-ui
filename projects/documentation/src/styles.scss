@@ -5,7 +5,19 @@
 }
 body{
   background-color: #001122;
+  background-image: 
+    radial-gradient(circle at -8% 50%, #aaffff70, transparent 15%), /* left edge */
+    radial-gradient(circle at 100% 100%, #aaffff30, transparent 24%), /* bottom-right */
+    radial-gradient(circle at 70% 120%, #aaffff20, transparent 25%); /* bottom center */
+    // url('./assets/bg3.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: screen, overlay;
   color: aliceblue;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 :root{
