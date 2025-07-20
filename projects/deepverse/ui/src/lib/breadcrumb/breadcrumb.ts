@@ -33,12 +33,13 @@ export class Breadcrumb implements OnInit {
     }
 
     for(const child of children){
-      const routeUrl:string = child.snapshot.url.map(segment=> segment.path).join('/');
-      if(routeUrl!==''){
+      const routeUrl : string = child.snapshot.url.map(segment=> segment.path).join('/');
+      if(routeUrl !== ''){
         url+=`${routeUrl}`;
       }
 
       const label = child.snapshot.data['breadcrumb'];
+      
       if(label !== undefined && label !== null){
         breadcrumbs.push({label,url});
       }

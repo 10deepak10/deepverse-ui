@@ -36,7 +36,7 @@ export const routes: Routes = [
         component: ToastAlert,
         data: { breadcrumb: 'Toast Alert' }
       },
-      {
+    {
         path: 'cta-box',
         component: CtaBox,
         data: { breadcrumb: 'CTA Box' }

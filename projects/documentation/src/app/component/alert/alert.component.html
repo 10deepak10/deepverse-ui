@@ -1,15 +1,15 @@
-<h2>Danger Alert</h2>
-<dv-alert type="danger"> Alert box showing danger. </dv-alert>
+
+<dv-table [rows]="documentation" class="demo-table">
+    <dv-table-item label="Property" key="property"></dv-table-item>
+    <dv-table-item label="Description" key="description"></dv-table-item>
+    <dv-table-item label="Type" key="type"></dv-table-item>
+    <dv-table-item label="Default Value" key="default_value"></dv-table-item>
+  </dv-table>
+  <br>
+<dv-alert type="danger" iconPrefix="assets/icons/"> Alert box showing danger. </dv-alert>
 <br />
-<h2>Warning Alert</h2>
-<dv-alert type="warning"> Alert box showing warning</dv-alert>
+<dv-alert type="warning" iconPrefix="assets/icons/"> Alert box showing warning</dv-alert>
 <br />
-<h2>Success Alert</h2>
-<dv-alert type="success"> Alert box showing success.</dv-alert>
+<dv-alert type="success" iconPrefix="assets/icons/"> Alert box showing success.</dv-alert>
 <br />
-<h2>Info Alert</h2>
-<dv-alert type="info"> Alert box showing info.</dv-alert>
-<br />
-<h2>Disabled Alert</h2>
-<dv-alert type="disabled"> Alert box showing disabled.</dv-alert>
-<br />
+<dv-alert type="info" iconPrefix="assets/icons/"> Alert box showing info.</dv-alert>

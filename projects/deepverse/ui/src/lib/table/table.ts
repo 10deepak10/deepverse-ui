@@ -28,6 +28,7 @@ export class Table implements AfterContentInit, AfterViewInit, OnDestroy {
   @Input() rows: any[] = [];
 
   @ContentChildren(TableItem) columnDefs!: QueryList<TableItem>;
+  
   @ViewChildren('thRef') thRefs!: QueryList<ElementRef<HTMLTableCellElement>>;
 
   columns: TableItem[] = [];

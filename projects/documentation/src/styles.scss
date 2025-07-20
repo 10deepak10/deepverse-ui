@@ -22,6 +22,35 @@ body{
 
 :root{
   --dv-border : #808080;
+  --border-type: solid;
+
+  /* Glass look */
+  --info-bg: rgba(255, 255, 255, 0.1);
+  --info-border: rgba(255, 255, 255, 0.2);
+  --info-text: #ffffff;
+
+  --success-bg: rgba(0, 255, 0, 0.1);
+  --success-border: rgba(0, 255, 0, 0.3);
+  --success-text: #a6f4c5;
+
+  --danger-bg: rgba(255, 0, 0, 0.1);
+  --danger-border: rgba(255, 0, 0, 0.3);
+  --danger-text: #ffc1c1;
+
+  --warning-bg: rgba(255, 255, 0, 0.1);
+  --warning-border: rgba(255, 255, 0, 0.3);
+  --warning-text: #fff3c4;
+
+  /* Optional frosted glass blur */
+  --glass-blur: blur(10px);
+
+  /* Optional: border radius */
+  --borderRadius: 12px;
+}
+un-alerts .alert_container{
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); // subtle lift
 }
 dv-layout{
 
