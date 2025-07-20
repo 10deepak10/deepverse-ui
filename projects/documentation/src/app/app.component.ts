@@ -53,8 +53,22 @@ export class AppComponent implements OnInit {
       {
         name: 'Alert',
         link: '/alert',
-        exact: true,
+        exact: false,
         icon: 'assets/icons/alert.svg',
+        children:[
+          {
+            name: 'Toaster',  
+            link: 'alert/toast-alert',
+            exact: true,
+            icon: 'assets/icons/anchor-menu.svg',
+          },
+          {
+            name: 'cta-box',
+            link: 'alert/cta-box',
+            exact: true,
+            icon: 'assets/icons/anchor-menu.svg',
+          },
+        ]
       },
       {
         name: 'Anchor Menu',

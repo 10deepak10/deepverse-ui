@@ -191,7 +191,7 @@
           grid-template-rows: 0fr;
           transition: grid-template-rows 500ms,opacity 500ms;
           opacity: 0;
-          overflow: hidden;
+          overflow: clip;
 
           &.expanded {
             grid-template-rows: 1fr;

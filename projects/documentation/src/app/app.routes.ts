@@ -13,6 +13,8 @@ import { AnchorMenu } from './component/anchor-menu/anchor-menu';
 import { Breadcrumb } from './component/breadcrumb/breadcrumb';
 import { TabDocumentation } from './component/tab-documentation/tab-documentation';
 import { IconDocumentation } from './component/icon-documentation/icon-documentation';
+import { ToastAlert } from './component/alert/toast-alert/toast-alert';
+import { CtaBox } from './component/alert/cta-box/cta-box';
 
 export const routes: Routes = [
   {
@@ -28,6 +30,18 @@ export const routes: Routes = [
   {
     path: 'alert',
     component: AlertDemoComponent,
+    children:[
+      {
+        path: 'toast-alert',
+        component: ToastAlert,
+        data: { breadcrumb: 'Toast Alert' }
+      },
+      {
+        path: 'cta-box',
+        component: CtaBox,
+        data: { breadcrumb: 'CTA Box' }
+      },
+    ],
     data: { breadcrumb: 'alert' }
   },
   {
