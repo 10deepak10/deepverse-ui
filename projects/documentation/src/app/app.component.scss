@@ -25,4 +25,16 @@ dv-sidebar.sidebar-component{
   border-radius: 12px;
 }
 
+.header{
+  padding: 10px 16px;
+    background: #ffffff10;
+    border-radius: 12px 12px 0px 0px;
+  .action-btn{
+    display:flex;
+    align-items: center;
+    gap: 6px;
+
+  }
+}
+
 

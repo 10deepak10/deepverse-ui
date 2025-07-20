@@ -1,0 +1,10 @@
+@if(items.length){
+<ul class="list-container">
+    @for (item of items; track item.id) {
+    <li class="list" (click)="anchor(item.id)" [class.active]="item.id == selected">
+        {{item.label}}
+    </li>
+    }
+    <span id="indicator"> </span>
+</ul>
+}

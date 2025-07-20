@@ -8,6 +8,7 @@ import {
   SidebarComponent,
   FooterComponent,
   Breadcrumb,
+  IconComponent
 } from '@deepverse/ui';
 
 @Component({
@@ -24,6 +25,7 @@ import {
     HeaderComponent,
     SidebarComponent,
     FooterComponent,
+    IconComponent,
     Breadcrumb
   ],
 })
@@ -81,7 +83,7 @@ export class AppComponent implements OnInit {
     
       {
         name: 'Icon',
-        link: '/icons',
+        link: '/icon',
         exact: true,
         icon: 'assets/icons/star.svg',
       },
@@ -124,62 +126,43 @@ export class AppComponent implements OnInit {
     ],
     footerLinks: [
       { name: 'How it works?', customLink: 'help', icon: 'assets/avatar.svg' },
-      { name: 'How it works?', customLink: 'help', icon: 'assets/avatar.svg' },
-      { name: 'How it works?', customLink: 'help', icon: 'assets/avatar.svg' },
-      { name: 'How it works?', customLink: 'help', icon: 'assets/avatar.svg' },
     ],
   };
   sidbarToggle(e: any) {
     console.log(e);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    document.addEventListener('fullscreenchange', () => {
+      const isFullscreen = !!document.fullscreenElement;
+      console.log('Fullscreen state:', isFullscreen);
+    });
+  }
 
-  navGroup = [
-    {
-      icon: 'assets/home.svg',
-      title: 'home',
-      link: '',
-    },
-    {
-      icon: 'assets/accordion.svg',
-      title: 'accordion',
-      link: 'accordion',
-    },
-    {
-      icon: 'assets/alert.svg',
-      title: 'alert',
-      link: 'alert',
-    },
-    {
-      icon: 'assets/button.svg',
-      title: 'button',
-      link: 'button',
-    },
-    {
-      icon: 'assets/avatar.svg',
-      title: 'avatar',
-      link: 'avatar',
-    },
-    {
-      icon: 'assets/image-slider.svg',
-      title: 'image slider',
-      link: 'image-slider',
-    },
-    {
-      icon: 'assets/progress-bar.svg',
-      title: 'progress bar',
-      link: 'progress-bar',
-    },
-    {
-      icon: 'assets/progress-bar.svg',
-      title: 'image picker',
-      link: 'imagepicker',
-    },
-    {
-      icon: 'assets/progress-bar.svg',
-      title: 'tooltip',
-      link: 'tooltip',
-    },
-  ];
+  readingMode = false;
+  isFullscreen = false;
+  
+  refreshPage(): void {
+    location.reload(); // Simple and clean refresh
+  }
+  
+  toggleReadingMode(): void {
+    this.readingMode = !this.readingMode;
+    document.body.classList.toggle('reading-mode', this.readingMode);
+  }
+  
+  toggleFullScreen(): void {
+    const elem = document.documentElement;
+  
+    if (!document.fullscreenElement) {
+      elem.requestFullscreen().then(() => {
+        this.isFullscreen = true;
+      });
+    } else {
+      document.exitFullscreen().then(() => {
+        this.isFullscreen = false;
+      });
+    }
+  }
+  
 }

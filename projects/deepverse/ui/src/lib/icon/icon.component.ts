@@ -16,8 +16,6 @@ import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 export class IconComponent implements OnInit {
   @Input('icon') icon: any;
   @Input('iconPrefix') iconPrefix: any = '';
-  @Input('filter') filter: any;
-  @Input('hoverEffect') hoverEffect: any;
 
   @Input() size: string | number = '24px';
   @Input() bgSize!: string | number;
@@ -52,35 +50,7 @@ export class IconComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['filter']) {
-      if (this.filter == 'black') {
-        this.classString.filter = 'filter_black';
-      }
-      if (this.filter == 'white') {
-        this.classString.filter = 'filter_white';
-      }
-      if (this.filter == 'gray') {
-        this.classString.filter = 'filter_gray';
-      }
-      if (this.filter == '' || this.filter == 'default') {
-        this.classString.filter = '';
-      }
-    }
-    if (changes['hoverEffect']) {
-      if (this.hoverEffect == 'white') {
-        this.classString.hover = 'hover_white';
-      }
-      if (this.hoverEffect == 'black') {
-        this.classString.hover = 'hover_black';
-      }
-      if (this.hoverEffect == 'default') {
-        this.classString.hover = 'hover_default';
-      }
-      if (this.hoverEffect == '') {
-        this.classString.hover = '';
-      }
-    }
-    if (changes['color']) {
+     if (changes['color']) {
       this._defaultColor = false;
     }
   }

@@ -12,6 +12,7 @@ export * from './lib/footer/footer.component';
 export * from './lib/avatar/avatar.component';
 export * from './lib/button/button.component';
 export * from './lib/accordion/accordion.component';
+export * from './lib/anchor-menu/anchor-menu';
 export * from './lib/accordion/accordion-item/accordion-item.component';
 export * from './lib/image-slider/image-slider.component';
 export * from './lib/progress-bar/progress-bar.component';

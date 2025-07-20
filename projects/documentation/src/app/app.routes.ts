@@ -11,8 +11,8 @@ import { Tooltip } from './component/tooltip/tooltip';
 import { TableDocumentation } from './component/table/table';
 import { AnchorMenu } from './component/anchor-menu/anchor-menu';
 import { Breadcrumb } from './component/breadcrumb/breadcrumb';
-import { Icon } from './component/icon/icon';
 import { TabDocumentation } from './component/tab-documentation/tab-documentation';
+import { IconDocumentation } from './component/icon-documentation/icon-documentation';
 
 export const routes: Routes = [
   {
@@ -77,7 +77,7 @@ export const routes: Routes = [
   },
   {
     path: 'icon',
-    component: Icon,
+    component: IconDocumentation,
     data: { breadcrumb: 'icon' }
   },
   {

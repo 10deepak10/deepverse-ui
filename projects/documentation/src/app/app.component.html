@@ -19,7 +19,46 @@
     </div>
   </dv-header >
   <dv-sidebar [config]="config">
-    <div class="header"> ffff</div>
+    <div class="header"> 
+      <div class="action-btn">
+        <!-- 🔴 RED: Refresh -->
+<dv-icon
+asBtn
+[icon]="'assets/icons/refresh.svg'"
+[bg]="['theme-error-color']"
+[color]="['#000']"
+[bgSize]="14"
+rounded="full"
+[size]="10"
+(click)="refreshPage()"
+></dv-icon>
+
+<!-- 🟡 YELLOW: Reading Mode -->
+<dv-icon
+asBtn
+[icon]="readingMode ? 'assets/icons/eye-off.svg' : 'assets/icons/eye.svg'"
+[bg]="['theme-warning-color']"
+[color]="['#000']"
+[bgSize]="14"
+rounded="full"
+[size]="10"
+(click)="toggleReadingMode()"
+></dv-icon>
+
+<!-- 🟢 GREEN: Fullscreen -->
+<dv-icon
+asBtn
+[icon]="isFullscreen ? 'assets/icons/compress.svg' : 'assets/icons/expand.svg'"
+[bg]="['theme-success-color']"
+[color]="['#000']"
+[bgSize]="14"
+rounded="full"
+[size]="10"
+(click)="toggleFullScreen()"
+></dv-icon>
+
+      </div>
+    </div>
   </dv-sidebar> 
   <router-outlet></router-outlet>
   <dv-footer></dv-footer>

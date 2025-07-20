@@ -1,1 +1,13 @@
-<p>anchor-menu works!</p>
+<dv-anchor-menu
+class="anchormenu"
+  [items]="sections"
+  [selected]="activeId()"
+  [scrollRoot]="scrollContainer"
+  (selectedChange)="onSelectedChange($event)">
+</dv-anchor-menu>
+
+<div #scrollContainer class="scroll-content">
+  <section id="about" style="height: 100vh;">About Section</section>
+  <section id="services" style="height: 100vh;">Services Section</section>
+  <section id="contact" style="height: 100vh;">Contact Section</section>
+</div>
