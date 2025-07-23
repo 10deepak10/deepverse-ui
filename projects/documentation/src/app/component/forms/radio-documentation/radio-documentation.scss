@@ -1,0 +1,28 @@
+
+dv-radio-group {
+    display: flex;
+    gap: 6  px;
+}
+.glass-radio {
+    padding: 1rem 2rem;
+    margin: 0.5rem;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.3s ease;
+  
+    &:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+  
+    &.selected {
+      border: 1px solid #00e0ff;
+      background: rgba(0, 224, 255, 0.25);
+    }
+  }
+  

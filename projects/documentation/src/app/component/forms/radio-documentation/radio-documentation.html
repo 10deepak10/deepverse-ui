@@ -1,0 +1,14 @@
+<dv-radio-group [(ngModel)]="selectedTheme" name="themes">
+    @for (theme of themes; track theme) {
+      <dv-radio [value]="theme">
+        <div
+          class="glass-radio"
+          [class.selected]="selectedTheme === theme">
+          {{ theme }}
+        </div>
+      </dv-radio>
+    }
+  </dv-radio-group>
+  
+  <p>You selected: {{ selectedTheme }}</p>
+  

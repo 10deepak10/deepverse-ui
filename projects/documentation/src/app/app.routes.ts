@@ -15,6 +15,9 @@ import { TabDocumentation } from './component/tab-documentation/tab-documentatio
 import { IconDocumentation } from './component/icon-documentation/icon-documentation';
 import { ToastAlert } from './component/alert/toast-alert/toast-alert';
 import { CtaBox } from './component/alert/cta-box/cta-box';
+import { FormsDemoComponent } from './component/forms/forms-demo-component';
+import { RadioDocumentation } from './component/forms/radio-documentation/radio-documentation';
+import { CheckboxDocumenration } from './component/forms/checkbox-documenration/checkbox-documenration';
 
 export const routes: Routes = [
   {
@@ -47,6 +50,23 @@ export const routes: Routes = [
   {
     path: 'button',
     component: ButtonDemoComponent,
+    data: { breadcrumb: 'button' }
+  },
+  {
+    path: 'forms',
+    component: FormsDemoComponent,
+    children:[
+      {
+        path: 'elements/radio',
+        component: RadioDocumentation,
+        data: { breadcrumb: 'Radio' }
+      },
+      {
+        path: 'elements/checkbox',
+        component: CheckboxDocumenration,
+        data: { breadcrumb: 'Checkbox' }
+      },
+    ],
     data: { breadcrumb: 'button' }
   },
   {

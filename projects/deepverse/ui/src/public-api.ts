@@ -28,3 +28,12 @@ export * from './lib/tabs/tabs/tabs.component';
 export * from './lib/tabs/tab-item/tab-item.component';
 export * from './lib/breadcrumb/breadcrumb';
 export * from './lib/tabs/tabs.module';
+
+export * from './lib/radio-group/radio-group';
+export * from './lib/radio-group/radio/radio';
+export * from './lib/radio-group/radio-group.module';
+
+export * from './lib/checkbox-group/checkbox/checkbox'
+export * from './lib/checkbox-group/checkbox-group'
+export * from './lib/checkbox-group/checkbox-group.module'
+

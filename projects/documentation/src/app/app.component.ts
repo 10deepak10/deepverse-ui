@@ -55,9 +55,9 @@ export class AppComponent implements OnInit {
         link: '/alert',
         exact: false,
         icon: 'assets/icons/alert.svg',
-        children:[
+        children: [
           {
-            name: 'Toaster',  
+            name: 'Toaster',
             link: 'alert/toast-alert',
             exact: true,
             icon: 'assets/icons/anchor-menu.svg',
@@ -94,7 +94,114 @@ export class AppComponent implements OnInit {
         exact: true,
         icon: 'assets/icons/button.svg',
       },
-    
+      {
+        name: 'Forms',
+        link: '/forms',
+        exact: false,
+        icon: 'assets/icons/star.svg',
+        children: [
+          {
+            name: 'Elements',
+            link: '/forms/elements',
+            exact: false,
+            icon: 'assets/icons/star.svg',
+            children: [
+              {
+                name: 'Checkbox',
+                link: '/forms/elements/checkbox',
+                exact: true,
+                icon: 'assets/icons/star.svg',
+              },
+              {
+                name: 'Chips Input',
+                link: '/forms/chips-input',
+                exact: true,
+                icon: 'assets/icons/star.svg',
+              },
+              {
+                name: 'Date picker',
+                link: '/forms/date-picker',
+                exact: true,
+                icon: 'assets/icons/star.svg',
+              },
+              {
+                name: 'Phone Input',
+                link: '/forms/phone-input',
+                exact: true,
+                icon: 'assets/icons/star.svg',
+              },
+              {
+                name: 'Radio',
+                link: '/forms/elements/radio',
+                exact: true,
+                icon: 'assets/icons/star.svg',
+              },
+              {
+                name: 'Select',
+                link: '/forms/select',
+                exact: true,
+                icon: 'assets/icons/star.svg',
+              },
+              {
+                name: 'Slider',
+                link: '/forms/slider',
+                exact: true,
+                icon: 'assets/icons/star.svg',
+              },
+            ]
+          },
+          {
+            name: 'Modules',
+            link: '/forms/modules',
+            exact: false,
+            icon: 'assets/icons/star.svg',
+            children: [
+              {
+                name: 'Country Select',
+                link: '/forms/country-select',
+                exact: true,
+                icon: 'assets/icons/star.svg',
+              },
+              {
+                name: 'File Upload',
+                link: '/forms/file-upload',
+                exact: true,
+                icon: 'assets/icons/star.svg',
+              },
+              {
+                name: 'Location Picker',
+                link: '/forms/location-picker',
+                exact: true,
+                icon: 'assets/icons/star.svg',
+              },
+              {
+                name: 'Otp Input',
+                link: '/forms/otp-input',
+                exact: true,
+                icon: 'assets/icons/star.svg',
+              },
+              {
+                name: 'Rating',
+                link: '/forms/rating',
+                exact: true,
+                icon: 'assets/icons/star.svg',
+              },
+              // {
+              //   name: 'Rich Text Editor',
+              //   link: '/forms/rich-text-editor',
+              //   exact: true,
+              //   icon: 'assets/icons/star.svg',
+              // },
+              {
+                name: 'Stepper Form',
+                link: '/forms/stepper-form',
+                exact: true,
+                icon: 'assets/icons/star.svg',
+              },
+            ]
+          },
+        ]
+      },
       {
         name: 'Icon',
         link: '/icon',
@@ -114,7 +221,7 @@ export class AppComponent implements OnInit {
         icon: 'assets/icons/bars-progress.svg',
       },
       {
-        name: 'Slider',
+        name: 'Image Slider',
         link: '/image-slider',
         exact: true,
         icon: 'assets/icons/slider.svg',
@@ -155,19 +262,19 @@ export class AppComponent implements OnInit {
 
   readingMode = false;
   isFullscreen = false;
-  
+
   refreshPage(): void {
     location.reload(); // Simple and clean refresh
   }
-  
+
   toggleReadingMode(): void {
     this.readingMode = !this.readingMode;
     document.body.classList.toggle('reading-mode', this.readingMode);
   }
-  
+
   toggleFullScreen(): void {
     const elem = document.documentElement;
-  
+
     if (!document.fullscreenElement) {
       elem.requestFullscreen().then(() => {
         this.isFullscreen = true;
@@ -178,5 +285,5 @@ export class AppComponent implements OnInit {
       });
     }
   }
-  
+
 }

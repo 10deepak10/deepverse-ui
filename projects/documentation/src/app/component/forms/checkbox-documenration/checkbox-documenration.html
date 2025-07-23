@@ -1,0 +1,10 @@
+<dv-checkbox-group [(ngModel)]="selectedTools">
+    @for (tool of tools; track tool) {
+      <dv-checkbox [value]="tool">
+        <div class="glass-checkbox" [class.checked]="selectedTools.includes(tool)">
+          {{ tool }}
+        </div>
+      </dv-checkbox>
+    }
+  </dv-checkbox-group>
+  {{selectedTools}}
