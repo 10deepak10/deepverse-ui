@@ -18,6 +18,7 @@ import { CtaBox } from './component/alert/cta-box/cta-box';
 import { FormsDemoComponent } from './component/forms/forms-demo-component';
 import { RadioDocumentation } from './component/forms/radio-documentation/radio-documentation';
 import { CheckboxDocumenration } from './component/forms/checkbox-documenration/checkbox-documenration';
+import { ChipInputDocumentation } from './component/chip-input-documentation/chip-input-documentation';
 
 export const routes: Routes = [
   {
@@ -65,6 +66,11 @@ export const routes: Routes = [
         path: 'elements/checkbox',
         component: CheckboxDocumenration,
         data: { breadcrumb: 'Checkbox' }
+      },
+      {
+        path: 'elements/chips-input',
+        component: ChipInputDocumentation,
+        data: { breadcrumb: 'Chip Input' }
       },
     ],
     data: { breadcrumb: 'button' }

@@ -114,7 +114,7 @@ export class AppComponent implements OnInit {
               },
               {
                 name: 'Chips Input',
-                link: '/forms/chips-input',
+                link: '/forms/elements/chips-input',
                 exact: true,
                 icon: 'assets/icons/star.svg',
               },

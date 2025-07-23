@@ -37,3 +37,5 @@ export * from './lib/checkbox-group/checkbox/checkbox'
 export * from './lib/checkbox-group/checkbox-group'
 export * from './lib/checkbox-group/checkbox-group.module'
 
+export * from './lib/chip-input/chip-input'
+

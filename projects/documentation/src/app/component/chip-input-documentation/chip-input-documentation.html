@@ -1,0 +1,12 @@
+<dv-chip-input [(ngModel)]="tags">
+    <ng-template #chip let-chip let-index="index">
+      <span class="chip">
+        {{ chip }}
+        <button (click)="tags.splice(index, 1)">×</button>
+      </span>
+    </ng-template>
+  </dv-chip-input>
+  
+  {{tags| json}}
+  
+  
