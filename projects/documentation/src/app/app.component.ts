@@ -48,6 +48,7 @@ export class AppComponent implements OnInit {
         name: 'accordion',
         link: '/accordion',
         exact: true,
+        tag:'done',
         icon: 'assets/icons/accordion.svg',
       },
       {
@@ -80,6 +81,7 @@ export class AppComponent implements OnInit {
         name: 'Avatar',
         link: '/avatar',
         exact: true,
+        tag:'done',
         icon: 'assets/icons/avatar.svg',
       },
       {
@@ -110,12 +112,14 @@ export class AppComponent implements OnInit {
                 name: 'Checkbox',
                 link: '/forms/elements/checkbox',
                 exact: true,
+                tag:'done',
                 icon: 'assets/icons/star.svg',
               },
               {
                 name: 'Chips Input',
                 link: '/forms/elements/chips-input',
                 exact: true,
+                tag:'done',
                 icon: 'assets/icons/star.svg',
               },
               // {
@@ -134,6 +138,7 @@ export class AppComponent implements OnInit {
                 name: 'Radio',
                 link: '/forms/elements/radio',
                 exact: true,
+                tag:'done',
                 icon: 'assets/icons/star.svg',
               },
               // {
@@ -206,6 +211,7 @@ export class AppComponent implements OnInit {
         name: 'Icon',
         link: '/icon',
         exact: true,
+        tag:'done',
         icon: 'assets/icons/star.svg',
       },
       {
@@ -230,6 +236,7 @@ export class AppComponent implements OnInit {
         name: 'Table',
         link: '/table',
         exact: true,
+        tag:'done',
         icon: 'assets/icons/table.svg',
       },
       {
@@ -242,12 +249,13 @@ export class AppComponent implements OnInit {
         name: 'Tooltip',
         link: '/tooltip',
         exact: true,
+        tag:'done',
         icon: 'assets/icons/tooltip.svg',
       },
     ],
-    footerLinks: [
-      { name: 'How it works?', customLink: 'help', icon: 'assets/avatar.svg' },
-    ],
+    // footerLinks: [
+    //   { name: 'How it works?', customLink: 'help', icon: 'assets/avatar.svg' },
+    // ],
   };
   sidbarToggle(e: any) {
     console.log(e);

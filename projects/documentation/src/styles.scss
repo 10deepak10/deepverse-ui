@@ -47,6 +47,21 @@ body{
   /* Optional: border radius */
   --borderRadius: 12px;
 }
+
+.tag.done {
+  background: rgba(0, 255, 128, 0.1); 
+  border: 1px solid rgba(0, 255, 128, 0.2); 
+  border-radius: 12px;
+  padding: 6px 14px;
+  color: #00cc88; 
+  box-shadow: 0 4px 30px rgba(0, 255, 128, 0.15); 
+  font-weight: 500;
+  font-size: 14px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+
 un-alerts .alert_container{
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);

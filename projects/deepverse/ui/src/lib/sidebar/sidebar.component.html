@@ -21,7 +21,7 @@
             >
             </span>
             <span class="menu-item-text">{{ item?.name }}</span>
-            <span class="tag" *ngIf="item?.tag">{{ item?.tag }}</span>
+            <span class="tag {{item?.tag}}" *ngIf="item?.tag">{{ item?.tag }}</span>
           </a>
           <svg
             *ngIf="

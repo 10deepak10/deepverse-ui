@@ -7,19 +7,18 @@
   height: 100dvh;
   z-index: 999;
   // background: linear-gradient(174.57deg, #1C4980 0%, #163964 96.55%);
-  background: linear-gradient(
-    174.57deg,
-    rgba(255, 255, 255, 0.15) 0%,
-    rgba(255, 255, 255, 0.05) 100%
-  );
+  background: linear-gradient(174.57deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(255, 255, 255, 0.05) 100%);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px); /* For Safari */
+  -webkit-backdrop-filter: blur(12px);
+  /* For Safari */
   border-radius: 0px 8px 8px 0px;
   box-sizing: border-box;
   min-width: 84px;
 
-  --text-color : #fff;
-  --active-icon : #aaffff;
+  --text-color: #fff;
+  --active-icon: #aaffff;
 
   @mixin icon-style {
     flex-shrink: 0;
@@ -32,7 +31,7 @@
 
   @mixin expanded-state {
     @media(min-width:767px) {
-      width: 280px;
+      width: 300px;
     }
 
     width: 100%;
@@ -69,8 +68,9 @@
 
     .sidebar {
       display: flex;
-    flex-direction: column;
-      .sidebar-menu{
+      flex-direction: column;
+
+      .sidebar-menu {
         overflow: auto;
         flex: 1 0 1px;
       }
@@ -83,7 +83,7 @@
       // flex-direction: column;
       min-height: 64px;
       max-height: fit-content;
-      flex: 1 0 1px ;
+      flex: 1 0 1px;
       overflow-y: auto;
       border-bottom-right-radius: 8px;
 
@@ -132,7 +132,7 @@
       ul.sidebar-menu,
       ul.footer-menu {
 
-        padding:20px 20px;
+        padding: 20px 20px;
         height: fit-content;
         flex: 1;
         // overflow: hidden;
@@ -153,12 +153,14 @@
           /* Safari and Chrome */
         }
 
-        li{
+        li {
           position: relative;
-          .menu-item.active + .has-dropdown path {
+
+          .menu-item.active+.has-dropdown path {
             stroke: #000;
           }
-          .has-dropdown{
+
+          .has-dropdown {
             position: absolute;
             right: 12px;
             top: 50%;
@@ -171,25 +173,27 @@
             align-items: center;
             transition: transform 500ms;
             cursor: pointer;
-            &.is_expanded{
+
+            &.is_expanded {
               transform: translateY(-50%) rotate(180deg);
             }
+
             &:hover {
-              background: linear-gradient(
-                174.57deg,
-                rgba(255, 255, 255, 0.15) 0%,
-                rgba(255, 255, 255, 0.05) 100%
-              );
+              background: linear-gradient(174.57deg,
+                  rgba(255, 255, 255, 0.15) 0%,
+                  rgba(255, 255, 255, 0.05) 100%);
+
               path {
                 stroke: #fff !important;
               }
             }
           }
         }
+
         .has-children {
           display: grid;
           grid-template-rows: 0fr;
-          transition: grid-template-rows 500ms,opacity 500ms;
+          transition: grid-template-rows 500ms, opacity 500ms;
           opacity: 0;
           overflow: clip;
 
@@ -257,7 +261,7 @@
                   top: 20px;
                 }
               }
-              
+
             }
           }
         }
@@ -287,11 +291,9 @@
           transition: color 0.3s ease;
 
           &.active {
-            background: linear-gradient(
-              174.57deg,
-              rgba(255, 255, 255, 0.15) 0%,
-              rgba(255, 255, 255, 0.05) 100%
-            );
+            background: linear-gradient(174.57deg,
+                rgba(255, 255, 255, 0.15) 0%,
+                rgba(255, 255, 255, 0.05) 100%);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px); // For Safari
             border: 1px solid rgba(255, 255, 255, 0.1); // Optional glass border
@@ -309,7 +311,8 @@
             }
           }
 
-          &:hover:not(.active) ,&:active:not(.active) {
+          &:hover:not(.active),
+          &:active:not(.active) {
             background: #ffffff08;
             backdrop-filter: blur(4px);
             -webkit-backdrop-filter: blur(4px);
@@ -486,8 +489,10 @@
         background: rgba(0, 0, 0, 0.5);
 
         .sidebar-container {
-          background: linear-gradient(174.57deg, #1C4980 0%, #163964 96.55%);
-          width: 280px;
+          background: linear-gradient(174.57deg,
+              rgba(255, 255, 255, 0.15) 0%,
+              rgba(255, 255, 255, 0.05) 100%);
+          width: 300px;
           border-radius: 0px 8px 8px 0px;
         }
       }
@@ -505,6 +510,7 @@
     }
   }
 }
-.rotate{
+
+.rotate {
   transform: rotate(180deg);
 }
