@@ -38,4 +38,5 @@ export * from './lib/checkbox-group/checkbox-group'
 export * from './lib/checkbox-group/checkbox-group.module'
 
 export * from './lib/chip-input/chip-input'
+export * from './lib/otp-input/otp-input'
 

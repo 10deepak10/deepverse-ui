@@ -19,6 +19,7 @@ import { FormsDemoComponent } from './component/forms/forms-demo-component';
 import { RadioDocumentation } from './component/forms/radio-documentation/radio-documentation';
 import { CheckboxDocumenration } from './component/forms/checkbox-documenration/checkbox-documenration';
 import { ChipInputDocumentation } from './component/chip-input-documentation/chip-input-documentation';
+import { OtpInputDocumentation } from './component/otp-input-documentation/otp-input-documentation';
 
 export const routes: Routes = [
   {
@@ -70,6 +71,11 @@ export const routes: Routes = [
       {
         path: 'elements/chips-input',
         component: ChipInputDocumentation,
+        data: { breadcrumb: 'Chip Input' }
+      },
+      {
+        path: 'modules/otp-input',
+        component: OtpInputDocumentation,
         data: { breadcrumb: 'Chip Input' }
       },
     ],
