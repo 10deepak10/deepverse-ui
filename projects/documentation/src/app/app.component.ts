@@ -243,6 +243,7 @@ export class AppComponent implements OnInit {
         name: 'tab',
         link: '/tab',
         exact: true,
+        tag:'done',
         icon: 'assets/icons/tab.svg',
       },
       {

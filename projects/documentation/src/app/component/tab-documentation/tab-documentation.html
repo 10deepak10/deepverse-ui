@@ -1,29 +1,47 @@
-<dv-table [rows]="TabDocumentation" class="demo-table">
-  <dv-table-item label="Property" key="property"></dv-table-item>
-  <dv-table-item label="Description" key="description"></dv-table-item>
-  <dv-table-item label="Type" key="type"></dv-table-item>
-  <dv-table-item label="Default Value" key="default_value"></dv-table-item>
-</dv-table>
-<dv-table [rows]="itemDocumentation " class="demo-table">
-  <dv-table-item label="Property" key="property"></dv-table-item>
-  <dv-table-item label="Description" key="description"></dv-table-item>
-  <dv-table-item label="Type" key="type"></dv-table-item>
-  <dv-table-item label="Default Value" key="default_value"></dv-table-item>
-</dv-table>
+<dv-tab-shell
+  [exampleTpl]="example"
+  [documentationTpl]="docs">
+</dv-tab-shell>
 
+<ng-template #example>
+ 
 <button (click)="dynamic.set(!dynamic())">click</button>
 
-<dv-tabs>
-  <dv-tab-item label="Home" slug="home">
-    <p>Welcome to the home tab!</p>
-  </dv-tab-item>
+<dv-tabs [default]="'profile'" [tabTemplate]="tabTemplate">
+  <dv-tab-item label="Home" slug="home">Home Content</dv-tab-item>
   @if(dynamic()){
-    <dv-tab-item label="Profile" slug="profile">
-      <p>This is your profile section.</p>
-    </dv-tab-item>
+    <dv-tab-item label="Profile" slug="profile">Profile Content</dv-tab-item>
   }
- 
-  <dv-tab-item label="Settings" slug="settings">
-    <p>You cannot access this tab.</p>
-  </dv-tab-item>
+  <dv-tab-item label="Settings" slug="settings">Settings Content</dv-tab-item>
 </dv-tabs>
+
+<ng-template #tabTemplate let-tab let-selectTab="selectTab">
+  <button
+    class="glass-tab"
+    [class.active]="tab.active"
+    [disabled]="tab.disabled"
+    (click)="selectTab(tab)">
+    {{ tab.label }}
+  </button>
+</ng-template>
+
+
+</ng-template>
+
+<ng-template #docs>
+  <dv-table [rows]="TabDocumentation" class="demo-table">
+    <dv-table-item label="Property" key="property"></dv-table-item>
+    <dv-table-item label="Description" key="description"></dv-table-item>
+    <dv-table-item label="Type" key="type"></dv-table-item>
+    <dv-table-item label="Default Value" key="default_value"></dv-table-item>
+  </dv-table>
+  <br>
+  <dv-table [rows]="itemDocumentation " class="demo-table">
+    <dv-table-item label="Property" key="property"></dv-table-item>
+    <dv-table-item label="Description" key="description"></dv-table-item>
+    <dv-table-item label="Type" key="type"></dv-table-item>
+    <dv-table-item label="Default Value" key="default_value"></dv-table-item>
+  </dv-table>
+</ng-template>
+
+

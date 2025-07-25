@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { IconComponent, Table, TableItem } from '@deepverse/ui';
+import { DvTabShell } from '../../shared/dv-tab-shell/dv-tab-shell';
 
 @Component({
   selector: 'app-icon-documentation',
-  imports: [IconComponent , Table , TableItem],
+  imports: [IconComponent ,DvTabShell, Table , TableItem],
   templateUrl: './icon-documentation.html',
   styleUrl: './icon-documentation.scss'
 })

@@ -1,38 +1,13 @@
-<div
-  class="un_tabs" 
-  [style.--height]="height"
-  [id]="tabId"
->
-  <span [class.disabled]="tab.disabled"
-    *ngFor="let tab of tabs_list"
-    [class.active]="tab.active"
-    [id]="tab?.id"
-    (click)="selectTab(tab)">
-    <div 
-    *ngIf="tab.iconLeft"
-    class="icon"
-    [style]="{
-        '-webkit-mask-image': 'url(' + tab.iconPrefix + tab.iconLeft + ')',
-        'mask-image': 'url(' + tab.iconPrefix + tab.iconLeft + ')'
-      
-    }"
+<div class="tab-header">
+  <ng-container *ngFor="let tab of tabs_list">
+    <ng-container
+      *ngTemplateOutlet="
+        tabTemplate;
+        context: { $implicit: tab, selectTab: selectTab.bind(this) }
+      "
     >
-    </div>
-
-    {{tab.tabLabel}}
-    <div class="hover_effect"></div>
-    
-    <div 
-    *ngIf="tab.iconRight"
-    class="icon"
-    [style]="{
-        '-webkit-mask-image': 'url(' + tab.iconPrefix + tab.iconRight + ')',
-        'mask-image': 'url(' + tab.iconPrefix + tab.iconRight + ')'
-       
-    }"
-    >
-    </div>
-  </span>
+    </ng-container>
+  </ng-container>
 </div>
 
 <ng-content></ng-content>

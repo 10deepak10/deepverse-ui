@@ -6,11 +6,10 @@ import { Component, Input, SimpleChanges } from '@angular/core';
   standalone: true,
   imports:[CommonModule],
   templateUrl: './tab-item.component.html',
-  styleUrls: ['./tab-item.component.scss']
 })
 export class TabItemComponent {
   @Input('active') active: boolean = false;
-  @Input('label') tabLabel: string = '';
+  @Input('label') label: string = '';
   @Input('slug') slug: string = '';
   @Input('iconLeft') iconLeft: string = '';
   @Input('iconRight') iconRight: string = '';
@@ -22,8 +21,8 @@ export class TabItemComponent {
   private static uniqueIdCounter = 0;
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['tabLabel'] && this.tabLabel) {
-        this.id = this?.slug ? this.slug : this.generateSlug(this.tabLabel);
+    if (changes['label'] && this.label) {
+        this.id = this?.slug ? this.slug : this.generateSlug(this.label);
     }
   }
 
@@ -35,6 +34,6 @@ export class TabItemComponent {
 
     const uniqueId = ++TabItemComponent.uniqueIdCounter;
 
-    return `un-tab-item-${safeLabel}-${uniqueId}`;
+    return `dv-tab-item-${safeLabel}-${uniqueId}`;
   }
 }

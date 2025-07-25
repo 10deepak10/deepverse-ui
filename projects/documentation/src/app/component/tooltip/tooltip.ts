@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, } from '@angular/core';
 import { IconComponent, Table, TableItem, TooltipDirective} from '@deepverse/ui';
 import { CommonModule } from '@angular/common';
+import { DvTabShell } from '../../shared/dv-tab-shell/dv-tab-shell';
 
 @Component({
   selector: 'app-tooltip',
-  imports: [ CommonModule, TooltipDirective ,IconComponent , Table , TableItem],
+  imports: [ CommonModule,DvTabShell, TooltipDirective ,IconComponent , Table , TableItem],
   templateUrl: './tooltip.html',
   styleUrl: './tooltip.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

@@ -1,5 +1,18 @@
-<dv-otp-input #otpInput [(ngModel)]="otp" [length]="6"/>
+<dv-tab-shell
+  [exampleTpl]="example"
+  [documentationTpl]="docs">
+</dv-tab-shell>
+
+<ng-template #example>
+  <dv-otp-input #otpInput [(ngModel)]="otp" [length]="6"/>
 
   
   <p>OTP: {{ otp }}</p>
+</ng-template>
+
+<ng-template #docs>
+
+</ng-template>
+
+
   

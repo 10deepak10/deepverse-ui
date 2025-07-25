@@ -1,0 +1,32 @@
+<div class="glass-tabs-container">
+    <dv-tabs [default]="defaultTab" [tabTemplate]="tabTemplate">
+      <dv-tab-item label="Example" slug="example">
+        <div class="tab-content">
+          <ng-container *ngTemplateOutlet="exampleTpl"></ng-container>
+        </div>
+      </dv-tab-item>
+  
+      <dv-tab-item label="Documentation" slug="documentation">
+        <div class="tab-content">
+          <ng-container *ngTemplateOutlet="documentationTpl"></ng-container>
+        </div>
+      </dv-tab-item>
+  
+      <!-- <dv-tab-item label="Playground" slug="playground">
+        <div class="tab-content">
+          <ng-container *ngTemplateOutlet="playgroundTpl"></ng-container>
+        </div>
+      </dv-tab-item> -->
+    </dv-tabs>
+  
+    <ng-template #tabTemplate let-tab let-selectTab="selectTab">
+      <button
+        class="glass-tab"
+        [class.active]="tab.active"
+        [disabled]="tab.disabled"
+        (click)="selectTab(tab)">
+        {{ tab.label }}
+      </button>
+    </ng-template>
+  </div>
+  

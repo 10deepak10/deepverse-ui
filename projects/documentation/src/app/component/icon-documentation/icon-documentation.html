@@ -1,8 +1,20 @@
-<dv-table [rows]="documentation" class="demo-table">
+<dv-tab-shell
+  [exampleTpl]="example"
+  [documentationTpl]="docs">
+</dv-tab-shell>
+
+<ng-template #example>
+ 
+  
+<dv-icon [icon]="'assets/icons/home.svg'" [color]="['#fff']" [size]="24"></dv-icon>
+</ng-template>
+
+<ng-template #docs>
+  <dv-table [rows]="documentation" class="demo-table">
     <dv-table-item label="Property" key="property"></dv-table-item>
     <dv-table-item label="Description" key="description"></dv-table-item>
     <dv-table-item label="Type" key="type"></dv-table-item>
     <dv-table-item label="Default Value" key="default_value"></dv-table-item>
   </dv-table>
-  
-<dv-icon [icon]="'assets/icons/home.svg'" [color]="['#fff']" [size]="24"></dv-icon>
+</ng-template>
+

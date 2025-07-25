@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AlertComponent, Table, TableItem } from '@deepverse/ui';
+import { DvTabShell } from '../../shared/dv-tab-shell/dv-tab-shell';
 
 @Component({
   selector: 'app-alert',
   standalone: true,
-  imports: [CommonModule, AlertComponent , Table , TableItem],
+  imports: [CommonModule,DvTabShell, AlertComponent , Table , TableItem],
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.scss']
 })

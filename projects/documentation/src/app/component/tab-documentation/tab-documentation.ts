@@ -1,9 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { Table, TableItem, TabsModule } from '@deepverse/ui';
+import { DvTabShell } from '../../shared/dv-tab-shell/dv-tab-shell';
 
 @Component({
   selector: 'app-tab-documentation',
-  imports: [TabsModule ,TableItem , Table],
+  imports: [CommonModule,DvTabShell, TabsModule ,TableItem , Table],
   templateUrl: './tab-documentation.html',
   styleUrl: './tab-documentation.scss'
 })
@@ -55,7 +57,7 @@ export class TabDocumentation {
       default_value: 'false',
     },
     {
-      property: 'tabLabel',
+      property: 'label',
       description: 'Label text to display for the tab.',
       type: 'string',
       default_value: `''`,

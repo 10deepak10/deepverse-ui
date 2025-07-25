@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AvatarComponent, Table, TableItem } from '@deepverse/ui';
+import { DvTabShell } from '../../shared/dv-tab-shell/dv-tab-shell';
 
 @Component({
   selector: 'app-avatar',
   standalone: true,
-  imports: [CommonModule, AvatarComponent , Table ,TableItem],
+  imports: [CommonModule,DvTabShell, AvatarComponent , Table ,TableItem],
   templateUrl: './avatar.component.html',
   styleUrls: ['./avatar.component.scss']
 })

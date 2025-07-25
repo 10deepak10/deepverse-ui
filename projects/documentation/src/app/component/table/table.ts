@@ -1,9 +1,10 @@
 import { Component, WritableSignal, signal } from '@angular/core';
 import { DvHeaderDirective, IconComponent, Table, TableItem, TooltipDirective ,DvCellDirective} from '@deepverse/ui';
 import dummyData from './dummy_employees.json';
+import { DvTabShell } from '../../shared/dv-tab-shell/dv-tab-shell';
 @Component({
   selector: 'app-table',
-  imports: [ Table , TableItem , DvHeaderDirective , DvCellDirective],
+  imports: [ DvTabShell,Table , TableItem , DvHeaderDirective , DvCellDirective],
   templateUrl: './table.html',
   styleUrl: './table.scss'
 })

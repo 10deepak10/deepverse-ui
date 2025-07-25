@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AccordionComponent, AccordionItemComponent, Table, TableItem } from '@deepverse/ui';
+import { DvTabShell } from '../../shared/dv-tab-shell/dv-tab-shell';
 
 @Component({
   selector: 'app-accordion',
   standalone: true,
-  imports: [CommonModule, AccordionItemComponent , AccordionComponent , Table, TableItem],
+  imports: [CommonModule, DvTabShell, AccordionItemComponent , AccordionComponent , Table, TableItem],
   templateUrl: './accordion.component.html'
 })
 export class AccordionDemoComponent {

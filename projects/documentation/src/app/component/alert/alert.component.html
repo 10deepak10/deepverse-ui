@@ -1,15 +1,28 @@
+<dv-tab-shell [exampleTpl]="example" [documentationTpl]="docs"> </dv-tab-shell>
 
-<dv-table [rows]="documentation" class="demo-table">
+<ng-template #example>
+  <dv-alert type="danger" iconPrefix="assets/icons/">
+    Alert box showing danger.
+  </dv-alert>
+  <br />
+  <dv-alert type="warning" iconPrefix="assets/icons/">
+    Alert box showing warning</dv-alert
+  >
+  <br />
+  <dv-alert type="success" iconPrefix="assets/icons/">
+    Alert box showing success.</dv-alert
+  >
+  <br />
+  <dv-alert type="info" iconPrefix="assets/icons/">
+    Alert box showing info.</dv-alert
+  >
+</ng-template>
+
+<ng-template #docs>
+  <dv-table [rows]="documentation" class="demo-table">
     <dv-table-item label="Property" key="property"></dv-table-item>
     <dv-table-item label="Description" key="description"></dv-table-item>
     <dv-table-item label="Type" key="type"></dv-table-item>
     <dv-table-item label="Default Value" key="default_value"></dv-table-item>
   </dv-table>
-  <br>
-<dv-alert type="danger" iconPrefix="assets/icons/"> Alert box showing danger. </dv-alert>
-<br />
-<dv-alert type="warning" iconPrefix="assets/icons/"> Alert box showing warning</dv-alert>
-<br />
-<dv-alert type="success" iconPrefix="assets/icons/"> Alert box showing success.</dv-alert>
-<br />
-<dv-alert type="info" iconPrefix="assets/icons/"> Alert box showing info.</dv-alert>
+</ng-template>

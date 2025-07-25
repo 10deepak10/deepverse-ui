@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Table, TableItem } from '@deepverse/ui';
+import { DvTabShell } from '../../shared/dv-tab-shell/dv-tab-shell';
 
 @Component({
   selector: 'app-breadcrumb',
-  imports: [TableItem , Table],
+  imports: [DvTabShell,TableItem , Table],
   templateUrl: './breadcrumb.html',
   styleUrl: './breadcrumb.scss'
 })

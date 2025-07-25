@@ -1,4 +1,10 @@
-<dv-chip-input [(ngModel)]="tags">
+<dv-tab-shell
+  [exampleTpl]="example"
+  [documentationTpl]="docs">
+</dv-tab-shell>
+
+<ng-template #example>
+  <dv-chip-input [(ngModel)]="tags">
     <ng-template #chip let-chip let-index="index">
       <span class="chip">
         {{ chip }}
@@ -8,5 +14,11 @@
   </dv-chip-input>
   
   {{tags| json}}
+</ng-template>
+
+<ng-template #docs>
+
+</ng-template>
+
   
   
