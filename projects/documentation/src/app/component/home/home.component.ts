@@ -6,11 +6,14 @@ import {
   HostListener,
   OnDestroy,
 } from '@angular/core';
+import { AlertComponent } from '@deepverse/ui';
 import { debounce } from 'lodash';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-home',
+  standalone:true,
+  imports:[AlertComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })

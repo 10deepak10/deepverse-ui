@@ -13,33 +13,58 @@ canvas {
 }
 
 .banner {
-  background-color: rgba($color: #123456, $alpha: 0.7);
-  height: 50%;
-  width: 50%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  width: 80%;
+  max-width: 600px;
+  padding: 40px 30px;
+
+  background: rgba(255, 255, 255, 0.1); // Translucent background
+  backdrop-filter: blur(12px);         // Glass blur
+  -webkit-backdrop-filter: blur(12px); // Safari support
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+
+  color: #fff;
   z-index: 2;
+  text-align: center;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(1.5px);
-  text-align: center;
   row-gap: 20px;
+
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25); // Soft shadow
 }
 
-.overlay-text h1 {
-  font-size: 2em;
+.banner h1 {
+  font-size: 2.5em;
+  font-weight: 600;
+  margin: 0;
 }
 
-.overlay-text p {
+.banner p {
   font-size: 1.2em;
+  max-width: 500px;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 300;
 }
+
 .note {
   color: #123456;
-  padding: 0 2px;
+  padding: 0 4px;
   background-color: #ffffff;
+  border-radius: 4px;
+}
+.desktop-hidden{
+  display: none;
+}
+@media screen and (max-width:767px) {
+  .desktop-hidden{
+    display: block;
+  }
 }

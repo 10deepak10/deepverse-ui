@@ -42,3 +42,9 @@
     min-width: 300px;
   }
 }
+
+@media screen and (max-width:767px) {
+  .sidebar-container {
+    min-width: auto;
+  }
+}
