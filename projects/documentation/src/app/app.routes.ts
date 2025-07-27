@@ -16,11 +16,13 @@ import { IconDocumentation } from './component/icon-documentation/icon-documenta
 import { ToastAlert } from './component/alert/toast-alert/toast-alert';
 import { CtaBox } from './component/alert/cta-box/cta-box';
 import { FormsDemoComponent } from './component/forms/forms-demo-component';
-import { RadioDocumentation } from './component/forms/radio-documentation/radio-documentation';
-import { CheckboxDocumenration } from './component/forms/checkbox-documenration/checkbox-documenration';
-import { ChipInputDocumentation } from './component/chip-input-documentation/chip-input-documentation';
-import { OtpInputDocumentation } from './component/otp-input-documentation/otp-input-documentation';
-import { FileUploadDocunentation } from './component/file-upload-docunentation/file-upload-docunentation';
+import { RadioDocumentation } from './component/forms/form-elements/radio-documentation/radio-documentation';
+import { CheckboxDocumenration } from './component/forms/form-elements/checkbox-documenration/checkbox-documenration';
+import { OtpInputDocumentation } from './component/forms/forms-module/otp-input-documentation/otp-input-documentation';
+import { FileUploadDocunentation } from './component/forms/form-elements/file-upload-docunentation/file-upload-docunentation';
+import { FormElements } from './component/forms/form-elements/form-elements';
+import { ChipInputDocumentation } from './component/forms/form-elements/chip-input-documentation/chip-input-documentation';
+import { FormsModule } from './component/forms/forms-module/forms-module';
 
 export const routes: Routes = [
   {
@@ -31,110 +33,118 @@ export const routes: Routes = [
   {
     path: 'accordion',
     component: AccordionDemoComponent,
-    data: { breadcrumb: 'accordion' }
+    data: { breadcrumb: 'accordion' },
   },
   {
     path: 'alert',
     component: AlertDemoComponent,
-    children:[
+    children: [
       {
         path: 'toast-alert',
         component: ToastAlert,
-        data: { breadcrumb: 'Toast Alert' }
+        data: { breadcrumb: 'Toast Alert' },
       },
-    {
+      {
         path: 'cta-box',
         component: CtaBox,
-        data: { breadcrumb: 'CTA Box' }
+        data: { breadcrumb: 'CTA Box' },
       },
     ],
-    data: { breadcrumb: 'alert' }
+    data: { breadcrumb: 'alert' },
   },
   {
     path: 'button',
     component: ButtonDemoComponent,
-    data: { breadcrumb: 'button' }
+    data: { breadcrumb: 'button' },
   },
   {
     path: 'forms',
     component: FormsDemoComponent,
-    children:[
-      {
-        path: 'elements/radio',
-        component: RadioDocumentation,
-        data: { breadcrumb: 'Radio' }
-      },
-      {
-        path: 'elements/checkbox',
-        component: CheckboxDocumenration,
-        data: { breadcrumb: 'Checkbox' }
-      },
-      {
-        path: 'elements/chips-input',
-        component: ChipInputDocumentation,
-        data: { breadcrumb: 'Chip Input' }
-      },
-      {
-        path: 'modules/otp-input',
-        component: OtpInputDocumentation,
-        data: { breadcrumb: 'OTP Input' }
-      },
-      {
-        path: 'modules/upload-box',
-        component: FileUploadDocunentation,
-        data: { breadcrumb: 'Upload Box' }
-      },
-    ],
-    data: { breadcrumb: 'button' }
+    data: { breadcrumb: 'Forms' },
+  },
+  {
+    path: 'forms/elements',
+    component: FormElements,
+    data: { breadcrumb: 'Elements' },
+  },
+  {
+    path: 'forms/elements/radio',
+    component: RadioDocumentation,
+    data: { breadcrumb: 'Radio' },
+  },
+  {
+    path: 'forms/elements/checkbox',
+    component: CheckboxDocumenration,
+    data: { breadcrumb: 'Checkbox' },
+  },
+  {
+    path: 'forms/elements/chips-input',
+    component: ChipInputDocumentation,
+    data: { breadcrumb: 'Chip Input' },
+  },
+  {
+    path: 'forms/modules/otp-input',
+    component: OtpInputDocumentation,
+    data: { breadcrumb: 'OTP Input' },
+  },
+  {
+    path: 'forms/modules',
+    component: FormsModule,
+    data: { breadcrumb: 'Modules' },
+  },
+  {
+    path: 'forms/modules/upload-box',
+    component: FileUploadDocunentation,
+    data: { breadcrumb: 'Upload Box' },
   },
   {
     path: 'avatar',
     component: AvatarDemoComponent,
-    data: { breadcrumb: 'avatar' }
+    data: { breadcrumb: 'avatar' },
   },
   {
     path: 'image-slider',
     component: ImageSliderDemoComponent,
-    data: { breadcrumb: 'image-slider' }
+    data: { breadcrumb: 'image-slider' },
   },
   {
     path: 'progress-bar',
     component: ProgressBarDemoComponent,
-    data: { breadcrumb: 'progress-bar' }
+    data: { breadcrumb: 'progress-bar' },
   },
   {
     path: 'imagepicker',
     component: ImagePickerComponent,
-    data: { breadcrumb: 'imagepicker' }
+    data: { breadcrumb: 'imagepicker' },
   },
   {
     path: 'tooltip',
     component: Tooltip,
-    data: { breadcrumb: 'tooltip' }
+    data: { breadcrumb: 'tooltip' },
   },
   {
     path: 'tab',
     component: TabDocumentation,
-    data: { breadcrumb: 'tab' }
+    data: { breadcrumb: 'tab' },
   },
   {
     path: 'breadcrumb',
     component: Breadcrumb,
-    data: { breadcrumb: 'breadcrumb' }
+    data: { breadcrumb: 'breadcrumb' },
   },
   {
     path: 'table',
     component: TableDocumentation,
-    data: { breadcrumb: 'table' }
+    data: { breadcrumb: 'table' },
   },
   {
     path: 'icon',
     component: IconDocumentation,
-    data: { breadcrumb: 'icon' }
+    data: { breadcrumb: 'icon' },
   },
   {
     path: 'anchor-menu',
     component: AnchorMenu,
-    data: { breadcrumb: 'anchor-menu' }
+    data: { breadcrumb: 'anchor-menu' },
   },
 ];

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { DvTabShell } from '../../shared/dv-tab-shell/dv-tab-shell';
+import { DvTabShell } from '../../../../shared/dv-tab-shell/dv-tab-shell';
 import { UploadBoxComponent } from '@deepverse/ui';
 import { FormsModule } from '@angular/forms';
 

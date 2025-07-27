@@ -1,0 +1,20 @@
+<div class="card-grid">
+    <div
+      *ngFor="let item of demolinks"
+      [class.disabled-card]="item.status !== 'ready'"
+      class="glass-card"
+      [routerLink]="item.status === 'ready' ? item.route : null"
+      tabindex="0"
+    >
+      <span class="icon">{{ item.icon }}</span>
+      <div class="info">
+        <h3>
+          {{ item.label }}
+          <span *ngIf="item.status !== 'ready'" class="badge">
+            {{ item.status === 'planned' ? '🛠 Planned' : '📌 In List' }}
+          </span>
+        </h3>
+        <p>{{ item.description }}</p>
+      </div>
+    </div>
+  </div>
