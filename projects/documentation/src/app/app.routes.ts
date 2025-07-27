@@ -20,6 +20,7 @@ import { RadioDocumentation } from './component/forms/radio-documentation/radio-
 import { CheckboxDocumenration } from './component/forms/checkbox-documenration/checkbox-documenration';
 import { ChipInputDocumentation } from './component/chip-input-documentation/chip-input-documentation';
 import { OtpInputDocumentation } from './component/otp-input-documentation/otp-input-documentation';
+import { FileUploadDocunentation } from './component/file-upload-docunentation/file-upload-docunentation';
 
 export const routes: Routes = [
   {
@@ -76,7 +77,12 @@ export const routes: Routes = [
       {
         path: 'modules/otp-input',
         component: OtpInputDocumentation,
-        data: { breadcrumb: 'Chip Input' }
+        data: { breadcrumb: 'OTP Input' }
+      },
+      {
+        path: 'modules/upload-box',
+        component: FileUploadDocunentation,
+        data: { breadcrumb: 'Upload Box' }
       },
     ],
     data: { breadcrumb: 'button' }

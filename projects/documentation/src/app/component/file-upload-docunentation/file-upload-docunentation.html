@@ -1,0 +1,38 @@
+<dv-tab-shell
+  [exampleTpl]="example"
+  [documentationTpl]="docs">
+</dv-tab-shell>
+
+<ng-template #example>
+    <dv-upload-box #upload [(ngModel)]="uploadedFile">
+        <div
+          class="drop-area"
+          (click)="upload.openFilePicker()"
+          (dragover)="$event.preventDefault()"
+          (drop)="upload.importFile($event)"
+        >
+          @if (upload.fileName()) {
+            <div class="file-info">
+              <strong>{{ upload.fileName() }}</strong>
+              <span>({{ upload.fileExtension() }})</span>
+              <div class="actions">
+                <button (click)="upload.reset()">Reset</button>
+                <!-- <button (click)="upload.delete()">Delete</button> -->
+              </div>
+            </div>
+          } @else {
+            <p>Click or drop a file here</p>
+          }
+        </div>
+      </dv-upload-box>
+      <p>Inside template: {{ uploadedFile?.name || 'No file' }}</p>
+
+      
+</ng-template>
+
+<ng-template #docs>
+
+</ng-template>
+
+
+  

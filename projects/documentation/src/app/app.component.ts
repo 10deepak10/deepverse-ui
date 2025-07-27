@@ -168,9 +168,10 @@ export class AppComponent implements OnInit {
               //   icon: 'assets/icons/star.svg',
               // },
               {
-                name: 'File Upload',
-                link: '/forms/file-upload',
+                name: 'Upload Box',
+                link: '/forms/modules/upload-box',
                 exact: true,
+                tag:'done',
                 icon: 'assets/icons/star.svg',
               },
               // {
