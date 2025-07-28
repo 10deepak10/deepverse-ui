@@ -1,33 +1,49 @@
-# DeepverseUiLibrary
+🌌 Deepverse UI
+Deepverse UI is a modern, headless UI component library built with Angular. It’s designed to be fully customizable, scalable, and component-driven. The goal is to provide a flexible foundation where developers have full control over styling while reusing clean, logic-driven components.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+🔧 Why Deepverse UI?
+💡 Headless-first approach – Logic and behavior handled internally; you control the UI.
 
-## Development server
+🧱 Scalable architecture – Reusable, maintainable, and structured for real-world apps.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+🎨 Theme-agnostic – No forced styles. Plug in your own design system.
 
-## Code scaffolding
+♿ Accessible – Keyboard navigation and screen reader support.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+🔗 Angular focused, with a plan to expose components via Web Components in the future.
 
-## Build
+🚀 Live Demo
+Explore the UI components here:
+👉 Deepverse UI Demo
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+📦 Current Features
+✅ File Upload with Preview
 
-## Running unit tests
+✅ Headless Modal, Tab, and Button components
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+✅ Form Controls: Text Input, Checkbox, Switch, Password Field
 
-## Running end-to-end tests
+✅ Utility Directives: Autofocus, ClickOutside, etc.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+🔜 Planned: Time Picker, Rating Stars, Range Slider, Date Picker
 
-## Further help
+🧪 Usage
+Note: Deepverse UI is currently not published on npm.
+If you’re interested in using it, feel free to reach out directly.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+📬 Contact Me: deepak.contact.info@gmail.com
+LinkedIn: https://www.linkedin.com/in/deepak-mohanty-b56135205/
 
-##deploy it live by running ng build --output-path docs --base-href /deepverse-ui/ documentation                  
+🛠 Tech Stack
+Angular 17+
 
+SCSS Modules
 
-ng build documentation --base-href /deepverse-ui/
-npx angular-cli-ghpages --dir=dist/documentation
+TypeScript
+
+Signal-based state handling (Angular Signals)
+
+Web Component compatibility (planned)
+
+💭 Vision
+Deepverse UI is not just a collection of components—it's a step toward creating fully decoupled, reusable building blocks that adapt to any design system. Built with developers in mind, it aims to streamline frontend architecture and empower teams with flexibility and speed.

@@ -1,0 +1,5 @@
+
+
+##deploy it live by running ng build --output-path docs --base-href /deepverse-ui/ documentation 
+ng build documentation --base-href /deepverse-ui/
+npx angular-cli-ghpages --dir=dist/documentation
