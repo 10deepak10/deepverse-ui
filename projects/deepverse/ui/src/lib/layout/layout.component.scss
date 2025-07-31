@@ -11,6 +11,11 @@
   flex: 1 0 1px;
   overflow: hidden;
 }
+.content{
+  height: auto;
+  flex-grow: 1;
+  overflow: auto;
+}
 .layout-content {
   position: relative;
   display: flex;
@@ -45,6 +50,9 @@
 
 @media screen and (max-width:767px) {
   .sidebar-container {
-    min-width: auto;
+    min-width: auto !important;
+  }
+  .content-container{
+    gap: 0px !important;
   }
 }

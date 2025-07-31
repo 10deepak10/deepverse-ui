@@ -10,7 +10,7 @@
       <ng-container *ngIf="layoutType == 'full-sidebar'">
         <ng-container *ngTemplateOutlet="headerTemplate"></ng-container>
      </ng-container>
-      <div><ng-content></ng-content></div>
+      <div class="content"><ng-content></ng-content></div>
       <ng-content select="dv-footer"></ng-content>
     </div>
   </div>

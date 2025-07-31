@@ -1,7 +1,13 @@
 <dv-layout [footerFixed]="false" [layoutType]="'full-sidebar'">
-
-  <dv-sidebar [config]="config">
+  <dv-sidebar
+    [(showSidebar)]="showSidebar"
+    [config]="config"
+    [expandState]="'default'"
+    [sidebarExpand]="sidebarExpand"
+    (expandEvent)="onExpand($event)"
+  >
     <div class="header">
+      @if(viewPort() == 'desktop' ){
       <div class="action-btn">
         <dv-icon
           asBtn
@@ -42,8 +48,30 @@
           (click)="toggleFullScreen()"
         ></dv-icon>
       </div>
+      }@else {
+      <div class="mobile-menu-bar">
+        <dv-icon
+          [icon]="'assets/icons/close.svg'"
+          [color]="['#fff']"
+          [size]="20"
+          (click)="showSidebar = false"
+        ></dv-icon>
+      </div>
+      }
     </div>
   </dv-sidebar>
+  <dv-header>
+    @if(viewPort()=='mobile'){
+      <dv-icon
+      left
+      [icon]="'assets/icons/menu.svg'"
+      [color]="['#fff']"
+      [size]="24"
+      (click)="showSidebar = true"
+    ></dv-icon>
+    }
+    <span center>Deepverse | UI </span>
+  </dv-header>
   <router-outlet></router-outlet>
   <!-- <dv-footer></dv-footer> -->
 </dv-layout>

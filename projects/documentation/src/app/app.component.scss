@@ -24,7 +24,22 @@ dv-sidebar.sidebar-component{
   height: 100%;
   border-radius: 12px;
 }
+dv-header{
+  padding: 0px 12px;
+  --bg-color : rgba(255, 255, 255, 0.1) !important;
+  --color: #fff !important;
+  flex-shrink: 0;
+  backdrop-filter: blur(12px); /* Frosted blur */
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Light glass border */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
 
+}
+.mobile-menu-bar{
+  display: flex;
+  padding: 10px 6px;
+  justify-content: flex-end;
+}
 .header{
   padding: 10px 16px;
     background: #ffffff10;

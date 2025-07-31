@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import {
@@ -10,6 +10,7 @@ import {
   Breadcrumb,
   IconComponent
 } from '@deepverse/ui';
+import { ViewportService } from './shared/service/viewport';
 
 @Component({
   selector: 'app-root',
@@ -31,9 +32,15 @@ import {
 })
 export class AppComponent implements OnInit {
   title = 'documentation';
+  showSidebar = false;
+  sidebarExpand = false;
+  private viewportService = inject(ViewportService);
+
+  viewPort = this.viewportService.viewPort;
 
   @ViewChild('userProfile', { static: true })
   userProfileTemplate!: TemplateRef<any>;
+
 
   config = {
     hoverEffect: 'default',
@@ -273,6 +280,9 @@ export class AppComponent implements OnInit {
   readingMode = false;
   isFullscreen = false;
 
+  onExpand(expanded: boolean) {
+    this.sidebarExpand = expanded;
+  }
   refreshPage(): void {
     location.reload(); // Simple and clean refresh
   }
