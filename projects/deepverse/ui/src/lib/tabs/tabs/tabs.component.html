@@ -3,7 +3,7 @@
     <ng-container
       *ngTemplateOutlet="
         tabTemplate;
-        context: { $implicit: tab, selectTab: selectTab.bind(this) }
+        context: { $implicit: tab, tabs:tabs_list.toArray(), selectTab: selectTab.bind(this) }
       "
     >
     </ng-container>

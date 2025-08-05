@@ -1,72 +1,121 @@
 <dv-tab-shell
-  [exampleTpl]="example"
-  [documentationTpl]="docs">
+  [tabItems]="[
+  {
+  label: 'Example',
+  slug: 'example',
+  templateRef:example,
+},
+  {
+  label: 'API',
+  slug: 'api',
+  templateRef:Api,
+},
+]"
+  uiType="header"
+>
 </dv-tab-shell>
 
+<!-- ======================= -->
+<!-- EXAMPLES TAB CONTENT -->
+<!-- ======================= -->
 <ng-template #example>
-  <section>
-    <dv-accordion group="radio" (activeAccordion)="allactives($event)">
-      <dv-accordion-item title="radio 1" [defaultOpen]="true" id="first">
-        <div>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum
-          possimus, qui minima aliquam cupiditate sequi ullam, eligendi
-  
-        </div>
-      </dv-accordion-item>
-      <dv-accordion-item title="radio 2" id="second">
-        <div>
-          accord 2, Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-          Dolorum possimus, qui minima aliquam cupiditate sequi ullam, eligendi
-          dignissimos, quae quidem recusandae? Veniam, minus nobis architecto
-  
-        </div>
-      </dv-accordion-item>
-      <dv-accordion-item title="radio 3" id="third">
-        <div>hurray</div>
-      </dv-accordion-item>
-    </dv-accordion>
-    <br>
-    <dv-accordion group="checkbox" [multipleOpen]="true" (activeAccordion)="allactives($event)">
-      <dv-accordion-item title="checkbox 1" id="one">
-        <div>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum
-          possimus, qui minima aliquam cupiditate sequi ullam, eligendi
-          dignissimos, quae quidem recusandae? Veniam, minus nobis architecto
-          umque quo harum nihil! Error repudiandae nihil dolorum
-          repellat aspernatur?
-        </div>
-      </dv-accordion-item>
-      <dv-accordion-item [defaultOpen]="true" title="checkbox 2" id="two">
-        <div>
-          accord 2, Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-          Dolorum possimus, qui minima aliquam cupiditate sequi ullam, eligendi
-          consequuntur cumque quo harum nihil! Error repudiandae nihil dolorum
-          repellat aspernatur?
-        </div>
-      </dv-accordion-item>
-      <dv-accordion-item title="checkbox 3" [defaultOpen]="true" id="three">
-        <div>hurray</div>
-      </dv-accordion-item>
-    </dv-accordion>
+  <section class="example-section">
+    <!-- 🔹 RADIO ACCORDION EXAMPLE -->
+    <h3>Radio Group (Single Open)</h3>
+    <p>Only one accordion item can be open at a time.</p>
+
+    <dv-tab-shell
+      [exampleTpl]="radioPreview"
+      [documentationTpl]="radioCode"
+    ></dv-tab-shell>
+
+    <!-- Divider -->
+    <hr class="section-divider" />
+
+    <!-- 🔹 CHECKBOX ACCORDION EXAMPLE -->
+    <h3>Checkbox Group (Multiple Open)</h3>
+    <p>Multiple accordion items can be open simultaneously.</p>
+
+    <dv-tab-shell
+      [exampleTpl]="checkboxPreview"
+      [documentationTpl]="checkboxCode"
+    ></dv-tab-shell>
+
+    <!-- Active IDs Display
+    <div class="active-log">
+      <strong>Active Accordion(s):</strong>
+      <pre>{{ activeItems | json }}</pre>
+    </div> -->
   </section>
 </ng-template>
 
-<ng-template #docs>
-  <dv-table [rows]="accordionProps" class="demo-table">
-    <dv-table-item label="Property" key="property"></dv-table-item>
-    <dv-table-item label="Description" key="description"></dv-table-item>
-    <dv-table-item label="Type" key="type"></dv-table-item>
-    <dv-table-item label="Default Value" key="default_value"></dv-table-item>
-  </dv-table>
-  <br>
-  <dv-table [rows]="accordionItemProps" class="demo-table">
-    <dv-table-item label="Property" key="property"></dv-table-item>
-    <dv-table-item label="Description" key="description"></dv-table-item>
-    <dv-table-item label="Type" key="type"></dv-table-item>
-    <dv-table-item label="Default Value" key="default_value"></dv-table-item>
-  </dv-table>
+<!-- ======================= -->
+<!-- API TAB CONTENT -->
+<!-- ======================= -->
+<ng-template #Api>
+  <section class="docs-section">
+    <h3>Accordion Inputs & Outputs</h3>
+    <br />
+    <dv-table [rows]="accordionProps" class="demo-table">
+      <dv-table-item label="Property" key="property"></dv-table-item>
+      <dv-table-item label="Description" key="description"></dv-table-item>
+      <dv-table-item label="Type" key="type"></dv-table-item>
+      <dv-table-item label="Default" key="default_value"></dv-table-item>
+    </dv-table>
+    <br />
+    <h3>Accordion Item Inputs & Outputs</h3>
+    <br />
+    <dv-table [rows]="accordionItemProps" class="demo-table">
+      <dv-table-item label="Property" key="property"></dv-table-item>
+      <dv-table-item label="Description" key="description"></dv-table-item>
+      <dv-table-item label="Type" key="type"></dv-table-item>
+      <dv-table-item label="Default" key="default_value"></dv-table-item>
+    </dv-table>
+  </section>
 </ng-template>
 
+<!-- ======================= -->
+<!-- RADIO PREVIEW TEMPLATE -->
+<!-- ======================= -->
+<ng-template #radioPreview>
+  <dv-accordion group="radio" (activeAccordion)="allactives($event)">
+    <dv-accordion-item title="Radio 1" [defaultOpen]="true" id="first">
+      <div>First item content.</div>
+    </dv-accordion-item>
+    <dv-accordion-item title="Radio 2" id="second">
+      <div>Second item content.</div>
+    </dv-accordion-item>
+    <dv-accordion-item title="Radio 3" id="third">
+      <div>Third item content.</div>
+    </dv-accordion-item>
+  </dv-accordion>
+</ng-template>
 
+<ng-template #radioCode>
+  <pre><code prismHighlight class="language-html">{{ radioExampleCode }}</code></pre>
+</ng-template>
 
+<!-- ======================= -->
+<!-- CHECKBOX PREVIEW TEMPLATE -->
+<!-- ======================= -->
+<ng-template #checkboxPreview>
+  <dv-accordion
+    group="checkbox"
+    [multipleOpen]="true"
+    (activeAccordion)="allactives($event)"
+  >
+    <dv-accordion-item title="Checkbox 1" id="one">
+      <div>First item content.</div>
+    </dv-accordion-item>
+    <dv-accordion-item title="Checkbox 2" [defaultOpen]="true" id="two">
+      <div>Second item content.</div>
+    </dv-accordion-item>
+    <dv-accordion-item title="Checkbox 3" [defaultOpen]="true" id="three">
+      <div>Third item content.</div>
+    </dv-accordion-item>
+  </dv-accordion>
+</ng-template>
 
+<ng-template #checkboxCode>
+  <pre><code prismHighlight class="language-html">{{ checkboxExampleCode }}</code></pre>
+</ng-template>

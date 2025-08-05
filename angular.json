@@ -76,7 +76,7 @@
               "projects/documentation/src/favicon.ico",
               "projects/documentation/src/assets"
             ],
-            "styles": ["projects/documentation/src/styles.scss"],
+            "styles": ["./node_modules/prismjs/themes/prism-okaidia.css","projects/documentation/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -134,7 +134,7 @@
               "projects/documentation/src/favicon.ico",
               "projects/documentation/src/assets"
             ],
-            "styles": ["projects/documentation/src/styles.scss"],
+            "styles": ["./node_modules/prismjs/themes/prism-okaidia.css","projects/documentation/src/styles.scss"],
             "scripts": []
           }
         }

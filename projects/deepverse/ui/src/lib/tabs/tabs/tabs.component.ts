@@ -33,7 +33,7 @@ export class TabsComponent implements OnInit, AfterContentInit, OnChanges {
 
   private static uniqueIdCounter = 0;
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     if (!this.tabId) {
@@ -53,7 +53,7 @@ export class TabsComponent implements OnInit, AfterContentInit, OnChanges {
     this.tabs_list.changes.subscribe(() => {
       queueMicrotask(() => {
         const current = this.tabs_list.find(tab => tab.active);
-    
+
         if (current) {
           this.selectTab(current);
         } else if (this.default) {
@@ -68,11 +68,11 @@ export class TabsComponent implements OnInit, AfterContentInit, OnChanges {
         } else {
           this.selectTab(this.tabs_list.first);
         }
-    
+
         this.cdr.markForCheck();
       });
     });
-    
+
   }
 
   selectTab(tab: TabItemComponent): void {
@@ -85,14 +85,15 @@ export class TabsComponent implements OnInit, AfterContentInit, OnChanges {
 
   private activateDefaultTab(): void {
     if (!this.tabs_list || this.tabs_list.length === 0) return;
-
-    const tab = this.tabs_list.find(
-      tab => (tab.slug || tab.label) === this.default
-    );
-    if (tab) {
-      this.selectTab(tab);
-    } else {
-      this.selectTab(this.tabs_list.first);
-    }
+    queueMicrotask(() => {
+      const tab = this.tabs_list.find(
+        tab => (tab.slug || tab.label) === this.default
+      );
+      if (tab) {
+        this.selectTab(tab);
+      } else {
+        this.selectTab(this.tabs_list.first);
+      }
+    });
   }
 }

@@ -1,84 +1,129 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AccordionComponent, AccordionItemComponent, Table, TableItem } from '@deepverse/ui';
+import {
+  AccordionComponent,
+  AccordionItemComponent,
+  Table,
+  TableItem,
+} from '@deepverse/ui';
 import { DvTabShell } from '../../shared/dv-tab-shell/dv-tab-shell';
+import { PrismHighlightDirective } from '../../shared/directive/highlight';
 
 @Component({
   selector: 'app-accordion',
   standalone: true,
-  imports: [CommonModule, DvTabShell, AccordionItemComponent , AccordionComponent , Table, TableItem],
-  templateUrl: './accordion.component.html'
+  imports: [
+    CommonModule,
+    DvTabShell,
+    AccordionItemComponent,
+    AccordionComponent,
+    Table,
+    TableItem,
+    PrismHighlightDirective,
+  ],
+  templateUrl: './accordion.component.html',
 })
 export class AccordionDemoComponent {
+  showRadioCode = false;
+  showCheckboxCode = false;
 
-  accordionProps: any[] = [
+  activeItems: string | string[] = [];
+
+  radioExampleCode = `
+<dv-accordion group="radio" (activeAccordion)="allactives($event)">
+  <dv-accordion-item title="Radio 1" [defaultOpen]="true" id="first">
+    <div>First item content.</div>
+  </dv-accordion-item>
+  <dv-accordion-item title="Radio 2" id="second">
+    <div>Second item content.</div>
+  </dv-accordion-item>
+  <dv-accordion-item title="Radio 3" id="third">
+    <div>Third item content.</div>
+  </dv-accordion-item>
+</dv-accordion>
+`.trim();
+
+  checkboxExampleCode = `
+<dv-accordion group="checkbox" [multipleOpen]="true" (activeAccordion)="allactives($event)">
+  <dv-accordion-item title="Checkbox 1" id="one">
+    <div>First item content.</div>
+  </dv-accordion-item>
+  <dv-accordion-item title="Checkbox 2" [defaultOpen]="true" id="two">
+    <div>Second item content.</div>
+  </dv-accordion-item>
+  <dv-accordion-item title="Checkbox 3" [defaultOpen]="true" id="three">
+    <div>Third item content.</div>
+  </dv-accordion-item>
+</dv-accordion>
+`.trim();
+
+  accordionProps = [
     {
       property: 'group',
-      description: 'A string identifier for the accordion group. Used for generating fallback item IDs.',
+      description: 'String identifier for the accordion group.',
       type: 'string',
       default_value: `'group'`,
     },
     {
       property: 'multipleOpen',
-      description: 'Allows multiple accordion items to be opened at the same time if set to true.',
+      description: 'Allows multiple items to be opened.',
       type: 'boolean',
       default_value: 'false',
     },
     {
       property: 'defaultOpen',
-      description: 'If true, items with `defaultOpen` set to true will be opened by default.',
+      description: 'If true, opens the item by default.',
       type: 'boolean',
       default_value: 'false',
     },
     {
       property: 'flush',
-      description: 'Optional styling flag to render accordion without borders or spacing.',
+      description: 'Removes spacing/styling.',
       type: 'boolean',
       default_value: 'false',
     },
     {
       property: 'activeAccordion',
-      description: 'Event emitted when an accordion item is opened or closed. Emits item ID(s).',
+      description: 'Emits ID(s) of open item(s).',
       type: 'EventEmitter<string | string[]>',
       default_value: '—',
-    }
+    },
   ];
-  accordionItemProps: any[] = [
+
+  accordionItemProps = [
     {
       property: 'id',
-      description: 'Optional identifier for the accordion item. If not provided, a unique fallback ID is generated.',
+      description: 'Unique ID for item (optional).',
       type: 'string',
-      default_value: 'undefined (auto-generated)',
+      default_value: 'auto-generated',
     },
     {
       property: 'title',
-      description: 'Title to be displayed on the accordion item header.',
+      description: 'Header text of the item.',
       type: 'string',
       default_value: `'accord'`,
     },
     {
       property: 'defaultOpen',
-      description: 'If true, this accordion item will be opened by default on init.',
+      description: 'Opens the item on init.',
       type: 'boolean',
       default_value: 'false',
     },
     {
       property: 'state',
-      description: 'Event emitted when the open/closed state of the item changes. Emits a boolean.',
+      description: 'Emits true/false when state changes.',
       type: 'EventEmitter<boolean>',
       default_value: '—',
     },
     {
       property: 'change',
-      description: 'Custom output that can be used for additional change tracking.',
+      description: 'General change event.',
       type: 'EventEmitter<any>',
       default_value: '—',
-    }
+    },
   ];
-  
 
-
-  allactives(e:any){
-    console.log(e);
+  allactives(e: string | string[]) {
+    this.activeItems = e;
   }
- }
+}
