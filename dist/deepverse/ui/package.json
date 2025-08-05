@@ -1,0 +1,29 @@
+{
+  "name": "@deepverse/ui",
+  "version": "0.0.1",
+  "description": "Effortlessly integrate stunning UI components for a seamless development experience.",
+  "keywords": [
+    "angular",
+    "library"
+  ],
+  "author": "Deepak Mohanty",
+  "peerDependencies": {
+    "@angular/common": "^20.0.0",
+    "@angular/core": "^20.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.6.0"
+  },
+  "sideEffects": false,
+  "module": "fesm2022/deepverse-ui.mjs",
+  "typings": "index.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./fesm2022/deepverse-ui.mjs"
+    }
+  }
+}
