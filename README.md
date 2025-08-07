@@ -33,20 +33,17 @@ Explore the UI components here:
 
 ## 🔌 How to Use
 
-> ⚠️ **Note:** Deepverse UI is currently **not published on npm**.  
-> If you’re interested in using it, feel free to reach out directly.
-
+> ⚠️ **Note:** Deepverse UI is currently in development.  
+> If you’re interested in using it, you can use it via npm.
+```
+npm install @deepverse/ui
+```
 ---
 
 ## 📬 Contact to Use
 
-This library is under active development and not yet available on npm.  
-To use Deepverse UI in your project, request access:
-
 - 📧 Email: [deepak.contact.info@gmail.com](mailto:deepak.contact.info@gmail.com)  
-- 🔗 LinkedIn: [Deepak Mohanty](https://www.linkedin.com/in/your-link-here)  
-
----
+- 🔗 LinkedIn: [Deepak Mohanty](https://www.linkedin.com/in/deepak-mohanty-b56135205)
 
 ## 🛠 Tech Stack
 
