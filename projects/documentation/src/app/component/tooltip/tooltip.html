@@ -1,25 +1,135 @@
-<dv-tab-shell [exampleTpl]="example" [documentationTpl]="docs"> </dv-tab-shell>
+<dv-tab-shell
+  [tabItems]="[
+    { label: 'Examples', slug: 'examples', templateRef: example },
+    { label: 'API', slug: 'api', templateRef: docs }
+  ]"
+  uiType="header"
+>
+</dv-tab-shell>
 
+<!-- ======================= -->
+<!-- EXAMPLES TAB CONTENT -->
+<!-- ======================= -->
 <ng-template #example>
-  <span
-    [dvTooltip]="'tootip work'"
-    [tooltipBgColor]="'#fff'"
-    tooltipOnClick
-    [tooltipTextColor]="'#000'"
-  >
-    <dv-icon
-      [icon]="'assets/icons/home.svg'"
-      [color]="['#fff']"
-      [size]="24"
-    ></dv-icon>
-  </span>
+  <section class="example-section">
+    <!-- Basic Tooltip -->
+    <h3>Basic Tooltip</h3>
+    <dv-tab-shell [exampleTpl]="basicPreview" [codeTpl]="basicCode"></dv-tab-shell>
+
+    <!-- Tooltip Positions -->
+    <h3>Tooltip Positions</h3>
+    <dv-tab-shell [exampleTpl]="positionPreview" [codeTpl]="positionCode"></dv-tab-shell>
+
+    <!-- Tooltip with Delay -->
+    <h3>Tooltip with Delay</h3>
+    <dv-tab-shell [exampleTpl]="delayPreview" [codeTpl]="delayCode"></dv-tab-shell>
+
+    <!-- Tooltip with Offset -->
+    <h3>Tooltip with Offset</h3>
+    <dv-tab-shell [exampleTpl]="offsetPreview" [codeTpl]="offsetCode"></dv-tab-shell>
+
+    <!-- Tooltip with Custom Colors -->
+    <h3>Custom Colors</h3>
+    <dv-tab-shell [exampleTpl]="colorPreview" [codeTpl]="colorCode"></dv-tab-shell>
+
+    <!-- Tooltip On Click -->
+    <h3>Tooltip on Click</h3>
+    <dv-tab-shell [exampleTpl]="clickPreview" [codeTpl]="clickCode"></dv-tab-shell>
+  </section>
 </ng-template>
 
+<!-- ======================= -->
+<!-- API TAB CONTENT -->
+<!-- ======================= -->
 <ng-template #docs>
-  <dv-table [rows]="documentation" class="demo-table">
-    <dv-table-item label="Property" key="property"></dv-table-item>
-    <dv-table-item label="Description" key="description"></dv-table-item>
-    <dv-table-item label="Type" key="type"></dv-table-item>
-    <dv-table-item label="Default Value" key="default_value"></dv-table-item>
-  </dv-table>
+  <section class="docs-section">
+    <h3>Tooltip Inputs</h3>
+    <br />
+    <dv-table [rows]="documentation" class="demo-table">
+      <dv-table-item label="Property" key="property"></dv-table-item>
+      <dv-table-item label="Description" key="description"></dv-table-item>
+      <dv-table-item label="Type" key="type"></dv-table-item>
+      <dv-table-item label="Default" key="default_value"></dv-table-item>
+    </dv-table>
+  </section>
+</ng-template>
+
+<!-- ======================= -->
+<!-- PREVIEWS + CODES -->
+<!-- ======================= -->
+
+<!-- Basic -->
+<ng-template #basicPreview>
+  <span [dvTooltip]="'Basic tooltip text'">
+    <dv-icon [icon]="'assets/icons/info.svg'" [color]="['#fff']" [size]="24"></dv-icon>
+  </span>
+</ng-template>
+<ng-template #basicCode>
+  <pre><code prismHighlight class="language-html">{{ tooltipBasicCode }}</code></pre>
+</ng-template>
+
+<!-- Positions -->
+<ng-template #positionPreview>
+  <span [dvTooltip]="'Top tooltip'" tooltipPosition="top">
+    <dv-icon [icon]="'assets/icons/info.svg'" [color]="['#fff']" [size]="24"></dv-icon>
+  </span>
+  <span [dvTooltip]="'Right tooltip'" tooltipPosition="right">
+    <dv-icon [icon]="'assets/icons/info.svg'" [color]="['#fff']" [size]="24"></dv-icon>
+  </span>
+  <span [dvTooltip]="'Bottom tooltip'" tooltipPosition="bottom">
+    <dv-icon [icon]="'assets/icons/info.svg'" [color]="['#fff']" [size]="24"></dv-icon>
+  </span>
+  <span [dvTooltip]="'Left tooltip'" tooltipPosition="left">
+    <dv-icon [icon]="'assets/icons/info.svg'" [color]="['#fff']" [size]="24"></dv-icon>
+  </span>
+</ng-template>
+<ng-template #positionCode>
+  <pre><code prismHighlight class="language-html">{{ tooltipPositionCode }}</code></pre>
+</ng-template>
+
+<!-- Delay -->
+<ng-template #delayPreview>
+  <span [dvTooltip]="'Appears after 1s'" [tooltipDelay]="1000">
+    <dv-icon [icon]="'assets/icons/info.svg'" [color]="['#fff']" [size]="24"></dv-icon>
+  </span>
+</ng-template>
+<ng-template #delayCode>
+  <pre><code prismHighlight class="language-html">{{ tooltipDelayCode }}</code></pre>
+</ng-template>
+
+<!-- Offset -->
+<ng-template #offsetPreview>
+  <span [dvTooltip]="'Offset 15px'" [tooltipOffset]="15">
+    <dv-icon [icon]="'assets/icons/info.svg'" [color]="['#fff']" [size]="24"></dv-icon>
+  </span>
+</ng-template>
+<ng-template #offsetCode>
+  <pre><code prismHighlight class="language-html">{{ tooltipOffsetCode }}</code></pre>
+</ng-template>
+
+<!-- Custom Colors -->
+<ng-template #colorPreview>
+  <span
+    [dvTooltip]="'White background, black text'"
+    [tooltipBgColor]="'#fff'"
+    [tooltipTextColor]="'#000'"
+  >
+    <dv-icon [icon]="'assets/icons/info.svg'" [color]="['#fff']" [size]="24"></dv-icon>
+  </span>
+</ng-template>
+<ng-template #colorCode>
+  <pre><code prismHighlight class="language-html">{{ tooltipColorCode }}</code></pre>
+</ng-template>
+
+<!-- Click -->
+<ng-template #clickPreview>
+  <span
+    [dvTooltip]="'Opens on click'"
+    tooltipOnClick
+  >
+    <dv-icon [icon]="'assets/icons/info.svg'" [color]="['#fff']" [size]="24"></dv-icon>
+  </span>
+</ng-template>
+<ng-template #clickCode>
+  <pre><code prismHighlight class="language-html">{{ tooltipClickCode }}</code></pre>
 </ng-template>

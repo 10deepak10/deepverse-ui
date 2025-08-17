@@ -1,397 +1,173 @@
 <dv-tab-shell
-  [exampleTpl]="example"
-  [documentationTpl]="docs">
+  [tabItems]="[
+    { label: 'Examples', slug: 'examples', templateRef: example },
+    { label: 'API', slug: 'api', templateRef: docs }
+  ]"
+  uiType="header"
+>
 </dv-tab-shell>
 
+<!-- ======================= -->
+<!-- EXAMPLES TAB CONTENT -->
+<!-- ======================= -->
 <ng-template #example>
- 
-<p>Circle image avatars</p>
-<dv-avatar
-  [name]="'Andrea Gibson'"
-  [imageUrl]="'assets/avatars/1.jpg'"
-></dv-avatar>
-<dv-avatar
-  [name]="'Shannon Allison'"
-  [imageUrl]="'assets/avatars/2.jpg'"
-></dv-avatar>
-<dv-avatar
-  [name]="'Reginald Andrews'"
-  [imageUrl]="'assets/avatars/3.jpg'"
-></dv-avatar>
-<dv-avatar
-  [name]="'Jared Brown'"
-  [imageUrl]="'assets/avatars/4.jpg'"
-></dv-avatar>
+  <section class="example-section">
 
-<p>Square image avatars</p>
-<dv-avatar
-  [imageUrl]="'assets/avatars/1.jpg'"
-  [shape]="'square'"
-></dv-avatar>
-<dv-avatar
-  [imageUrl]="'assets/avatars/2.jpg'"
-  [shape]="'square'"
-></dv-avatar>
-<dv-avatar
-  [imageUrl]="'assets/avatars/3.jpg'"
-  [shape]="'square'"
-></dv-avatar>
-<dv-avatar
-  [imageUrl]="'assets/avatars/4.jpg'"
-  [shape]="'square'"
-></dv-avatar>
+    <!-- Circle Avatars -->
+    <h3>Circle Avatars</h3>
+    <dv-tab-shell [exampleTpl]="circlePreview" [codeTpl]="circleCode"></dv-tab-shell>
 
-<p>Rounded square image avatars</p>
-<dv-avatar
-  [imageUrl]="'assets/avatars/1.jpg'"
-  [shape]="'rounded'"
-></dv-avatar>
-<dv-avatar
-  [imageUrl]="'assets/avatars/2.jpg'"
-  [shape]="'rounded'"
-></dv-avatar>
-<dv-avatar
-  [imageUrl]="'assets/avatars/3.jpg'"
-  [shape]="'rounded'"
-></dv-avatar>
-<dv-avatar
-  [imageUrl]="'assets/avatars/4.jpg'"
-  [shape]="'rounded'"
-></dv-avatar>
+    <!-- Square Avatars -->
+    <h3>Square Avatars</h3>
+    <dv-tab-shell [exampleTpl]="squarePreview" [codeTpl]="squareCode"></dv-tab-shell>
 
-<p>Circle Letter avatars</p>
-<dv-avatar [name]="'Andrea Gibson'" [initials]="'AG'"></dv-avatar>
-<dv-avatar [name]="'Shannon Allison'" [initials]="'SHA'"></dv-avatar>
-<dv-avatar [name]="'Reginald Andrews'" [initials]="'RA'"></dv-avatar>
-<dv-avatar [name]="'Jared Brown'" [initials]="'JB'"></dv-avatar>
+    <!-- Rounded Avatars -->
+    <h3>Rounded Avatars</h3>
+    <dv-tab-shell [exampleTpl]="roundedPreview" [codeTpl]="roundedCode"></dv-tab-shell>
 
-<p>Square Letter avatars</p>
-<dv-avatar
-  [name]="'Andrea Gibson'"
-  [initials]="'AG'"
-  [shape]="'square'"
-></dv-avatar>
-<dv-avatar
-  [name]="'Shannon Allison'"
-  [initials]="'SHA'"
-  [shape]="'square'"
-></dv-avatar>
-<dv-avatar
-  [name]="'Reginald Andrews'"
-  [initials]="'RA'"
-  [shape]="'square'"
-></dv-avatar>
-<dv-avatar
-  [name]="'Jared Brown'"
-  [initials]="'JB'"
-  [shape]="'square'"
-></dv-avatar>
+    <!-- Initials Avatars -->
+    <h3>Initials Avatars</h3>
+    <dv-tab-shell [exampleTpl]="initialsPreview" [codeTpl]="initialsCode"></dv-tab-shell>
 
-<p>Rounded square Letter avatars</p>
-<dv-avatar
-  [name]="'Andrea Gibson'"
-  [initials]="'AG'"
-  [shape]="'rounded'"
-></dv-avatar>
-<dv-avatar
-  [name]="'Shannon Allison'"
-  [initials]="'SHA'"
-  [shape]="'rounded'"
-></dv-avatar>
-<dv-avatar
-  [name]="'Reginald Andrews'"
-  [initials]="'RA'"
-  [shape]="'rounded'"
-></dv-avatar>
-<dv-avatar
-  [name]="'Jared Brown'"
-  [initials]="'JB'"
-  [shape]="'rounded'"
-></dv-avatar>
+    <!-- Sizes -->
+    <h3>Avatar Sizes</h3>
+    <dv-tab-shell [exampleTpl]="sizesPreview" [codeTpl]="sizesCode"></dv-tab-shell>
 
-<p>Circle image avatars Sizes</p>
-<dv-avatar [imageUrl]="'assets/avatars/1.jpg'" [size]="'xl'"></dv-avatar>
-<dv-avatar [imageUrl]="'assets/avatars/2.jpg'" [size]="'lg'"></dv-avatar>
-<dv-avatar [imageUrl]="'assets/avatars/3.jpg'" [size]="'md'"></dv-avatar>
-<dv-avatar [imageUrl]="'assets/avatars/4.jpg'" [size]="'sm'"></dv-avatar>
+    <!-- Borders -->
+    <h3>Borders & Styles</h3>
+    <dv-tab-shell [exampleTpl]="bordersPreview" [codeTpl]="bordersCode"></dv-tab-shell>
 
-<p>Square image avatars Sizes</p>
-<dv-avatar
-  [imageUrl]="'assets/avatars/1.jpg'"
-  [shape]="'square'"
-  [size]="'xl'"
-></dv-avatar>
-<dv-avatar
-  [imageUrl]="'assets/avatars/2.jpg'"
-  [shape]="'square'"
-  [size]="'lg'"
-></dv-avatar>
-<dv-avatar
-  [imageUrl]="'assets/avatars/3.jpg'"
-  [shape]="'square'"
-  [size]="'md'"
-></dv-avatar>
-<dv-avatar
-  [imageUrl]="'assets/avatars/4.jpg'"
-  [shape]="'square'"
-  [size]="'sm'"
-></dv-avatar>
+    <!-- Colors -->
+    <h3>Custom Colors</h3>
+    <dv-tab-shell [exampleTpl]="colorsPreview" [codeTpl]="colorsCode"></dv-tab-shell>
 
-<p>Rounded square image avatars Sizes</p>
-<dv-avatar
-  [imageUrl]="'assets/avatars/1.jpg'"
-  [shape]="'rounded'"
-  [size]="'xl'"
-></dv-avatar>
-<dv-avatar
-  [imageUrl]="'assets/avatars/2.jpg'"
-  [shape]="'rounded'"
-  [size]="'lg'"
-></dv-avatar>
-<dv-avatar
-  [imageUrl]="'assets/avatars/3.jpg'"
-  [shape]="'rounded'"
-  [size]="'md'"
-></dv-avatar>
-<dv-avatar
-  [imageUrl]="'assets/avatars/4.jpg'"
-  [shape]="'rounded'"
-  [size]="'sm'"
-></dv-avatar>
+    <!-- Status -->
+    <h3>Status Indicators</h3>
+    <dv-tab-shell [exampleTpl]="statusPreview" [codeTpl]="statusCode"></dv-tab-shell>
 
-<p>Circle Letter avatars Sizes</p>
-<dv-avatar
-  [name]="'Andrea Gibson'"
-  [initials]="'AG'"
-  [size]="'xl'"
-></dv-avatar>
-<dv-avatar
-  [name]="'Shannon Allison'"
-  [initials]="'SA'"
-  [size]="'lg'"
-></dv-avatar>
-<dv-avatar
-  [name]="'Reginald Andrews'"
-  [initials]="'RA'"
-  [size]="'md'"
-></dv-avatar>
-<dv-avatar
-  [name]="'Jared Brown'"
-  [initials]="'JB'"
-  [size]="'sm'"
-></dv-avatar>
+    <!-- Click -->
+    <h3>Clickable Avatars</h3>
+    <dv-tab-shell [exampleTpl]="clickPreview" [codeTpl]="clickCode"></dv-tab-shell>
 
-<p>Square Letter avatars Sizes</p>
-<dv-avatar
-  [name]="'Andrea Gibson'"
-  [initials]="'AG'"
-  [shape]="'square'"
-  [size]="'xl'"
-></dv-avatar>
-<dv-avatar
-  [name]="'Shannon Allison'"
-  [initials]="'SA'"
-  [shape]="'square'"
-  [size]="'lg'"
-></dv-avatar>
-<dv-avatar
-  [name]="'Reginald Andrews'"
-  [initials]="'RA'"
-  [shape]="'square'"
-  [size]="'md'"
-></dv-avatar>
-<dv-avatar
-  [name]="'Jared Brown'"
-  [initials]="'JB'"
-  [shape]="'square'"
-  [size]="'sm'"
-></dv-avatar>
+    <!-- Name -->
+    <h3>Avatar with Name</h3>
+    <dv-tab-shell [exampleTpl]="namePreview" [codeTpl]="nameCode"></dv-tab-shell>
 
-<p>Rounded square Letter avatars Sizes</p>
-<dv-avatar
-  [name]="'Andrea Gibson'"
-  [initials]="'AG'"
-  [shape]="'rounded'"
-  [size]="'xl'"
-></dv-avatar>
-<dv-avatar
-  [name]="'Shannon Allison'"
-  [initials]="'SA'"
-  [shape]="'rounded'"
-  [size]="'lg'"
-></dv-avatar>
-<dv-avatar
-  [name]="'Reginald Andrews'"
-  [initials]="'RA'"
-  [shape]="'rounded'"
-  [size]="'md'"
-></dv-avatar>
-<dv-avatar
-  [name]="'Jared Brown'"
-  [initials]="'JB'"
-  [shape]="'rounded'"
-  [size]="'sm'"
-></dv-avatar>
-
-<p>Circle image avatars with border</p>
-<dv-avatar
-  [imageUrl]="'assets/avatars/1.jpg'"
-  [showBorder]="true"
-></dv-avatar>
-<dv-avatar
-  [imageUrl]="'assets/avatars/2.jpg'"
-  [showBorder]="true"
-></dv-avatar>
-<dv-avatar
-  [imageUrl]="'assets/avatars/3.jpg'"
-  [showBorder]="true"
-></dv-avatar>
-<dv-avatar
-  [imageUrl]="'assets/avatars/4.jpg'"
-  [showBorder]="true"
-></dv-avatar>
-
-<p>Circle Letter avatars with your background color</p>
-<dv-avatar
-  [name]="'Andrea Gibson'"
-  [initials]="'AG'"
-  [bgColor]="'red'"
-></dv-avatar>
-<dv-avatar
-  [name]="'Shannon Allison'"
-  [initials]="'SA'"
-  [bgColor]="'red'"
-></dv-avatar>
-<dv-avatar
-  [name]="'Reginald Andrews'"
-  [initials]="'RA'"
-  [bgColor]="'red'"
-></dv-avatar>
-<dv-avatar
-  [name]="'Jared Brown'"
-  [initials]="'JB'"
-  [bgColor]="'red'"
-></dv-avatar>
-
-<p>Circle Letter avatars with your text color</p>
-<dv-avatar
-  [name]="'Andrea Gibson'"
-  [initials]="'AG'"
-  [textColor]="'black'"
-></dv-avatar>
-<dv-avatar
-  [name]="'Shannon Allison'"
-  [initials]="'SA'"
-  [textColor]="'black'"
-></dv-avatar>
-<dv-avatar
-  [name]="'Reginald Andrews'"
-  [initials]="'RA'"
-  [textColor]="'black'"
-></dv-avatar>
-<dv-avatar
-  [name]="'Jared Brown'"
-  [initials]="'JB'"
-  [textColor]="'black'"
-></dv-avatar>
-
-<p>Circle image avatars with status</p>
-<dv-avatar
-  [imageUrl]="'assets/avatars/1.jpg'"
-  [size]="'xl'"
-  [status]="'danger'"
-></dv-avatar>
-<dv-avatar
-  [imageUrl]="'assets/avatars/2.jpg'"
-  [size]="'lg'"
-  [status]="'danger'"
-></dv-avatar>
-<dv-avatar
-  [imageUrl]="'assets/avatars/3.jpg'"
-  [size]="'md'"
-  [status]="'danger'"
-></dv-avatar>
-<dv-avatar
-  [imageUrl]="'assets/avatars/4.jpg'"
-  [size]="'sm'"
-  [status]="'danger'"
-></dv-avatar>
-<dv-avatar
-  [imageUrl]="'assets/avatars/1.jpg'"
-  [size]="'xl'"
-  [status]="'success'"
-></dv-avatar>
-<dv-avatar
-  [imageUrl]="'assets/avatars/2.jpg'"
-  [size]="'lg'"
-  [status]="'success'"
-></dv-avatar>
-<dv-avatar
-  [imageUrl]="'assets/avatars/3.jpg'"
-  [size]="'md'"
-  [status]="'success'"
-></dv-avatar>
-<dv-avatar
-  [imageUrl]="'assets/avatars/4.jpg'"
-  [size]="'sm'"
-  [status]="'success'"
-></dv-avatar>
-
-<p>Avatars click</p>
-<dv-avatar
-  [imageUrl]="'assets/avatars/1.jpg'"
-  (avatarClick)="onAvatarClick()"
-></dv-avatar>
-
-<p>Custom rounded avatars</p>
-<dv-avatar
-  [imageUrl]="'assets/avatars/1.jpg'"
-  [cornerRadius]="'25'"
-></dv-avatar>
-<dv-avatar
-  [name]="'Jared Brown'"
-  [initials]="'JB'"
-  [cornerRadius]="'25'"
-></dv-avatar>
-
-<p>Avatars with border width</p>
-<dv-avatar
-  [imageUrl]="'assets/avatars/1.jpg'"
-  [showBorder]="true"
-  [borderWidth]="'3'"
-></dv-avatar>
-
-<p>Avatars with border Color</p>
-<dv-avatar
-  [imageUrl]="'assets/avatars/1.jpg'"
-  [showBorder]="true"
-  [borderColor]="'red'"
-></dv-avatar>
-
-<p>Avatars with border style</p>
-<dv-avatar
-  [imageUrl]="'assets/avatars/1.jpg'"
-  [showBorder]="true"
-  [borderWidth]="'3'"
-  [borderStyle]="'dotted'"
-></dv-avatar>
-
-<p>Avatars with name</p>
-<dv-avatar
-  [name]="'Andrea Gibson'"
-  [imageUrl]="'assets/avatars/1.jpg'"
-  [showBorder]="true"
-  [borderWidth]="'3'"
-  [showName]="true"
-></dv-avatar>
+  </section>
 </ng-template>
 
+<!-- ======================= -->
+<!-- API TAB CONTENT -->
+<!-- ======================= -->
 <ng-template #docs>
-  <dv-table [rows]="documentation" class="demo-table">
-    <dv-table-item label="Property" key="property"></dv-table-item>
-    <dv-table-item label="Description" key="description"></dv-table-item>
-    <dv-table-item label="Type" key="type"></dv-table-item>
-    <dv-table-item label="Default Value" key="default_value"></dv-table-item>
-  </dv-table>
+  <section class="docs-section">
+    <h3>Avatar Inputs & Outputs</h3>
+    <br />
+    <dv-table [rows]="documentation" class="demo-table">
+      <dv-table-item label="Property" key="property"></dv-table-item>
+      <dv-table-item label="Description" key="description"></dv-table-item>
+      <dv-table-item label="Type" key="type"></dv-table-item>
+      <dv-table-item label="Default" key="default_value"></dv-table-item>
+    </dv-table>
+  </section>
 </ng-template>
 
+<!-- ======================= -->
+<!-- PREVIEWS + CODE TABS -->
+<!-- ======================= -->
+
+<!-- Circle -->
+<ng-template #circlePreview>
+  <dv-avatar [imageUrl]="'assets/avatars/1.jpg'"></dv-avatar>
+  <dv-avatar [imageUrl]="'assets/avatars/2.jpg'"></dv-avatar>
+</ng-template>
+<ng-template #circleCode>
+  <pre><code prismHighlight class="language-html">{{ avatarCircleCode }}</code></pre>
+</ng-template>
+
+<!-- Square -->
+<ng-template #squarePreview>
+  <dv-avatar [imageUrl]="'assets/avatars/1.jpg'" [shape]="'square'"></dv-avatar>
+  <dv-avatar [imageUrl]="'assets/avatars/2.jpg'" [shape]="'square'"></dv-avatar>
+</ng-template>
+<ng-template #squareCode>
+  <pre><code prismHighlight class="language-html">{{ avatarSquareCode }}</code></pre>
+</ng-template>
+
+<!-- Rounded -->
+<ng-template #roundedPreview>
+  <dv-avatar [imageUrl]="'assets/avatars/3.jpg'" [shape]="'rounded'"></dv-avatar>
+  <dv-avatar [imageUrl]="'assets/avatars/4.jpg'" [shape]="'rounded'"></dv-avatar>
+</ng-template>
+<ng-template #roundedCode>
+  <pre><code prismHighlight class="language-html">{{ avatarRoundedCode }}</code></pre>
+</ng-template>
+
+<!-- Initials -->
+<ng-template #initialsPreview>
+  <dv-avatar [name]="'Andrea Gibson'" [initials]="'AG'"></dv-avatar>
+  <dv-avatar [name]="'Jared Brown'" [initials]="'JB'"></dv-avatar>
+</ng-template>
+<ng-template #initialsCode>
+  <pre><code prismHighlight class="language-html">{{ avatarInitialsCode }}</code></pre>
+</ng-template>
+
+<!-- Sizes -->
+<ng-template #sizesPreview>
+  <dv-avatar [imageUrl]="'assets/avatars/1.jpg'" [size]="'xl'"></dv-avatar>
+  <dv-avatar [imageUrl]="'assets/avatars/2.jpg'" [size]="'lg'"></dv-avatar>
+  <dv-avatar [imageUrl]="'assets/avatars/3.jpg'" [size]="'md'"></dv-avatar>
+  <dv-avatar [imageUrl]="'assets/avatars/4.jpg'" [size]="'sm'"></dv-avatar>
+</ng-template>
+<ng-template #sizesCode>
+  <pre><code prismHighlight class="language-html">{{ avatarSizesCode }}</code></pre>
+</ng-template>
+
+<!-- Borders -->
+<ng-template #bordersPreview>
+  <dv-avatar [imageUrl]="'assets/avatars/1.jpg'" [showBorder]="true"></dv-avatar>
+  <dv-avatar [imageUrl]="'assets/avatars/1.jpg'" [showBorder]="true" [borderWidth]="'3'" [borderStyle]="'dotted'"></dv-avatar>
+  <dv-avatar [imageUrl]="'assets/avatars/1.jpg'" [showBorder]="true" [borderColor]="'red'"></dv-avatar>
+</ng-template>
+<ng-template #bordersCode>
+  <pre><code prismHighlight class="language-html">{{ avatarBordersCode }}</code></pre>
+</ng-template>
+
+<!-- Colors -->
+<ng-template #colorsPreview>
+  <dv-avatar [name]="'Andrea Gibson'" [initials]="'AG'" [bgColor]="'red'"></dv-avatar>
+  <dv-avatar [name]="'Shannon Allison'" [initials]="'SA'" [textColor]="'black'"></dv-avatar>
+</ng-template>
+<ng-template #colorsCode>
+  <pre><code prismHighlight class="language-html">{{ avatarColorsCode }}</code></pre>
+</ng-template>
+
+<!-- Status -->
+<ng-template #statusPreview>
+  <dv-avatar [imageUrl]="'assets/avatars/1.jpg'" [status]="'danger'"></dv-avatar>
+  <dv-avatar [imageUrl]="'assets/avatars/2.jpg'" [status]="'success'"></dv-avatar>
+</ng-template>
+<ng-template #statusCode>
+  <pre><code prismHighlight class="language-html">{{ avatarStatusCode }}</code></pre>
+</ng-template>
+
+<!-- Click -->
+<ng-template #clickPreview>
+  <dv-avatar [imageUrl]="'assets/avatars/1.jpg'" (avatarClick)="onAvatarClick()"></dv-avatar>
+</ng-template>
+<ng-template #clickCode>
+  <pre><code prismHighlight class="language-html">{{ avatarClickCode }}</code></pre>
+</ng-template>
+
+<!-- With Name -->
+<ng-template #namePreview>
+  <dv-avatar
+    [name]="'Andrea Gibson'"
+    [imageUrl]="'assets/avatars/1.jpg'"
+    [showBorder]="true"
+    [showName]="true">
+  </dv-avatar>
+</ng-template>
+<ng-template #nameCode>
+  <pre><code prismHighlight class="language-html">{{ avatarNameCode }}</code></pre>
+</ng-template>

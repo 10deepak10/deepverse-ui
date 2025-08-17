@@ -5,9 +5,27 @@
       [label]="tab.label"
       [slug]="tab.slug"
     >
-      <div class="tab-content">
+    <div class="tab-content">
+      <!-- Code tab -->
+      <ng-container *ngIf="tab.slug === 'code'">
+        <dv-icon
+          [icon]="'assets/icons/copy.svg'"
+          [color]="['#fff', '#efefef' , '#a1fe8c']"
+          [size]="24"
+          class="copy-btn"
+          (click)="copyCode(codeBlock)"
+        ></dv-icon>
+        <div class="code-block" #codeBlock>
+          <ng-container *ngTemplateOutlet="tab.templateRef"></ng-container>
+        </div>
+      </ng-container>
+    
+      <!-- Non-code tabs -->
+      <ng-container *ngIf="tab.slug !== 'code'">
         <ng-container *ngTemplateOutlet="tab.templateRef"></ng-container>
-      </div>
+      </ng-container>
+    </div>
+    
     </dv-tab-item>
   </dv-tabs>
   <ng-template #headerTabTemplate let-tab let-selectTab="selectTab">

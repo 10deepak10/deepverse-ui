@@ -158,3 +158,13 @@ code {
 .token.function {
   color: #8be9fd;
 }
+dv-tab-item{
+  position: relative;
+}
+.copy-btn{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  cursor: pointer;
+}
